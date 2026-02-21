@@ -3,79 +3,111 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>JL Sites</title>
+<title>JL Sites - Criação Profissional</title>
+
 <style>
+*{margin:0;padding:0;box-sizing:border-box;}
 
 body{
-margin:0;
 font-family:Arial;
-background:#06192b;
+background:#041321;
 color:white;
 }
 
 header{
-background:linear-gradient(90deg,#003366,#0055aa);
+background:linear-gradient(90deg,#003366,#0077ff);
 padding:30px;
 text-align:center;
+box-shadow:0 5px 20px rgba(0,0,0,0.4);
 }
 
-h1{margin:0}
-
-.menu{
-display:flex;
-justify-content:center;
-gap:15px;
-margin-top:10px;
-flex-wrap:wrap;
+header h1{
+font-size:36px;
+letter-spacing:2px;
 }
 
-.menu a{
+nav{
+margin-top:15px;
+}
+
+nav a{
 color:white;
 text-decoration:none;
-padding:8px 12px;
-background:#0b2c45;
+margin:0 10px;
+padding:8px 14px;
 border-radius:8px;
+background:rgba(255,255,255,0.1);
 }
 
 .hero{
 text-align:center;
-padding:40px 20px;
+padding:60px 20px;
+background:linear-gradient(#041321,#06233a);
+}
+
+.hero h2{
+font-size:32px;
+margin-bottom:15px;
+}
+
+.hero p{
+font-size:18px;
+max-width:600px;
+margin:auto;
 }
 
 .btn{
-background:#25D366;
-padding:12px 20px;
-border-radius:10px;
-text-decoration:none;
-color:black;
-font-weight:bold;
 display:inline-block;
-margin-top:15px;
+margin-top:20px;
+background:#25D366;
+color:black;
+padding:14px 25px;
+border-radius:10px;
+font-weight:bold;
+text-decoration:none;
 }
 
 .planos{
 display:flex;
 flex-wrap:wrap;
 justify-content:center;
-gap:15px;
-padding:20px;
+gap:20px;
+padding:40px 20px;
 }
 
 .card{
 background:#0b2c45;
-padding:20px;
+padding:25px;
 border-radius:12px;
-width:220px;
+width:250px;
 text-align:center;
+box-shadow:0 0 20px rgba(0,0,0,0.4);
+transition:0.3s;
+}
+
+.card:hover{
+transform:translateY(-5px);
+}
+
+.card h3{
+margin-bottom:10px;
+font-size:24px;
+}
+
+.preco{
+font-size:26px;
+color:#00ffae;
+margin-top:10px;
+font-weight:bold;
 }
 
 footer{
 background:#02111f;
-padding:20px;
 text-align:center;
+padding:20px;
 margin-top:30px;
+font-size:15px;
 }
-
 </style>
 </head>
 
@@ -85,20 +117,19 @@ margin-top:30px;
 <h1>JL SITES</h1>
 <p>Criação Profissional de Sites</p>
 
-<div class="menu">
+<nav>
 <a href="#">Início</a>
 <a href="#">Serviços</a>
 <a href="#">Planos</a>
 <a href="#">Contato</a>
-</div>
+</nav>
 </header>
 
 <section class="hero">
 <h2>Transforme sua ideia em realidade!</h2>
 <p>Sites modernos, rápidos e profissionais para empresas e negócios.</p>
 
-<a class="btn"
-href="https://wa.me/5513996469617">
+<a class="btn" href="https://wa.me/5513996469617">
 Pedir Orçamento
 </a>
 </section>
@@ -108,26 +139,26 @@ Pedir Orçamento
 <div class="card">
 <h3>Básico</h3>
 <p>Site simples</p>
-<p><b>R$ 299</b></p>
+<div class="preco">R$ 299</div>
 </div>
 
 <div class="card">
 <h3>Profissional</h3>
 <p>Site completo</p>
-<p><b>R$ 499</b></p>
+<div class="preco">R$ 499</div>
 </div>
 
 <div class="card">
 <h3>Premium</h3>
 <p>Loja ou catálogo</p>
-<p><b>R$ 799</b></p>
+<div class="preco">R$ 799</div>
 </div>
 
 </section>
 
 <footer>
-<p>📞 (13) 99646-9617</p>
-<p>✉️ joseluizariel@gmail.com</p>
+📞 (13) 99646-9617<br>
+✉️ joseluizariel@gmail.com
 </footer>
 
 </body>
