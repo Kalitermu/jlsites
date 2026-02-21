@@ -3,33 +3,34 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>JL Sites • Agência Premium</title>
+<title>JL Sites | Agência Elite</title>
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{
-font-family:Arial;
-background:#020912;
-color:white;
-overflow-x:hidden;
+font-family:Arial, sans-serif;
+background:#030b14;
+color:#fff;
+line-height:1.6;
+scroll-behavior:smooth;
 }
 
-/* FUNDO ANIMADO */
-body::before{
+/* ===== FUNDO PREMIUM ===== */
+body:before{
 content:"";
 position:fixed;
 width:200%;
 height:200%;
-background:radial-gradient(circle,#005eff33,#000);
-animation:rotate 25s linear infinite;
+background:radial-gradient(circle at center,#0077ff22,#000);
+animation:gira 30s linear infinite;
 z-index:-1;
 }
-@keyframes rotate{
-from{transform:rotate(0)}
-to{transform:rotate(360deg)}
+@keyframes gira{
+0%{transform:rotate(0)}
+100%{transform:rotate(360deg)}
 }
 
-/* MENU */
+/* ===== MENU ===== */
 header{
 position:fixed;
 top:0;
@@ -43,41 +44,42 @@ z-index:100;
 nav a{
 color:white;
 text-decoration:none;
-margin:6px;
+margin:5px;
 padding:8px 14px;
-background:rgba(255,255,255,.1);
 border-radius:8px;
+background:rgba(255,255,255,.12);
 }
 
-/* HERO */
+/* ===== HERO ===== */
 .hero{
 padding:120px 20px 70px;
 text-align:center;
 }
 .hero h1{
 font-size:42px;
-animation:fade 1.2s;
+margin-bottom:15px;
+animation:fade 1s;
 }
 .hero p{
 max-width:700px;
-margin:15px auto;
+margin:auto;
 font-size:18px;
+color:#d7d7d7;
 }
-
 .btn{
 display:inline-block;
 margin-top:20px;
+padding:14px 24px;
 background:#25D366;
 color:black;
-padding:14px 25px;
-border-radius:10px;
 font-weight:bold;
+border-radius:10px;
 text-decoration:none;
 transition:.3s;
 }
-.btn:hover{transform:scale(1.08)}
+.btn:hover{transform:scale(1.05)}
 
-/* CONTADOR */
+/* ===== CONTADOR ===== */
 .contador{
 display:flex;
 flex-wrap:wrap;
@@ -88,14 +90,17 @@ padding:30px;
 .num{
 background:#0b2c45;
 padding:20px;
+min-width:170px;
 border-radius:12px;
-min-width:160px;
 text-align:center;
-box-shadow:0 0 20px rgba(0,0,0,.4);
+box-shadow:0 0 20px rgba(0,0,0,.5);
 }
-.num h2{color:#00ffaa;font-size:32px}
+.num h2{
+font-size:30px;
+color:#00ffae;
+}
 
-/* PLANOS */
+/* ===== PLANOS ===== */
 .planos{
 display:flex;
 flex-wrap:wrap;
@@ -105,13 +110,11 @@ padding:40px 20px;
 }
 .card{
 background:#0b2c45;
-padding:25px;
 width:280px;
+padding:25px;
 border-radius:14px;
 box-shadow:0 0 25px rgba(0,0,0,.5);
 transition:.4s;
-position:relative;
-overflow:hidden;
 opacity:0;
 transform:translateY(40px);
 }
@@ -119,24 +122,12 @@ transform:translateY(40px);
 opacity:1;
 transform:translateY(0);
 }
-.card::before{
-content:"";
-position:absolute;
-top:0;
-left:-100%;
-width:100%;
-height:100%;
-background:linear-gradient(90deg,transparent,rgba(255,255,255,.2),transparent);
-transition:.6s;
-}
-.card:hover::before{left:100%}
-.card:hover{transform:translateY(-10px)}
-
+.card:hover{transform:translateY(-8px)}
 .preco{
 font-size:32px;
-color:#00ffaa;
-margin:10px 0;
+color:#00ffae;
 font-weight:bold;
+margin:10px 0;
 }
 .tag{
 background:#ffcc00;
@@ -148,12 +139,21 @@ display:inline-block;
 margin-bottom:8px;
 }
 
-/* PORTFÓLIO */
+/* ===== BOX INFO ===== */
+.box{
+max-width:900px;
+margin:20px auto;
+padding:25px;
+background:#06263f;
+border-radius:12px;
+}
+
+/* ===== PORTFÓLIO ===== */
 .port{
 display:flex;
 flex-wrap:wrap;
-gap:15px;
 justify-content:center;
+gap:15px;
 padding:30px;
 }
 .item{
@@ -169,16 +169,7 @@ transition:.3s;
 }
 .item:hover{transform:scale(1.05)}
 
-/* INFO */
-.box{
-background:#06263f;
-max-width:900px;
-margin:20px auto;
-padding:25px;
-border-radius:12px;
-}
-
-/* BOTÃO WHATS */
+/* ===== BOTÃO WHATS ===== */
 .whats{
 position:fixed;
 bottom:20px;
@@ -192,7 +183,7 @@ text-decoration:none;
 box-shadow:0 0 20px rgba(0,0,0,.6);
 }
 
-/* FOOTER */
+/* ===== FOOTER ===== */
 footer{
 background:#000;
 text-align:center;
@@ -201,6 +192,7 @@ margin-top:30px;
 font-size:14px;
 }
 
+/* ===== ANIMAÇÃO ===== */
 @keyframes fade{
 from{opacity:0;transform:translateY(20px)}
 to{opacity:1;transform:translateY(0)}
@@ -211,7 +203,7 @@ to{opacity:1;transform:translateY(0)}
 <body>
 
 <header>
-<h2>JL SITES • Agência Premium</h2>
+<h2>JL SITES • Agência Elite</h2>
 <nav>
 <a href="#">Início</a>
 <a href="#">Planos</a>
@@ -221,8 +213,8 @@ to{opacity:1;transform:translateY(0)}
 </header>
 
 <section class="hero">
-<h1>Sites Profissionais que Vendem 🚀</h1>
-<p>Visual premium, design moderno e tecnologia para empresas que querem crescer.</p>
+<h1>Sites Profissionais que PASSAM CONFIANÇA 🚀</h1>
+<p>Criação de sites modernos para empresas, lojas e profissionais que querem crescer online.</p>
 <a class="btn" href="https://wa.me/5513996469617">💬 Pedir Orçamento</a>
 </section>
 
@@ -235,31 +227,41 @@ to{opacity:1;transform:translateY(0)}
 <section class="planos">
 
 <div class="card">
-<h3>Básico</h3>
+<h3>Plano Básico</h3>
 <div class="preco">R$299</div>
-<p>✔ Página profissional</p>
+<p>✔ 1 página profissional</p>
 <p>✔ Botão WhatsApp</p>
 <p>✔ Site moderno</p>
+<p>✔ Publicação grátis</p>
 </div>
 
 <div class="card">
 <span class="tag">MAIS VENDIDO</span>
-<h3>Profissional</h3>
+<h3>Plano Profissional</h3>
 <div class="preco">R$499</div>
 <p>✔ Até 4 seções</p>
 <p>✔ Layout premium</p>
 <p>✔ SEO básico</p>
+<p>✔ Site online incluso</p>
 </div>
 
 <div class="card">
-<h3>Agência Premium</h3>
+<h3>Plano Elite</h3>
 <div class="preco">R$799</div>
-<p>✔ Loja ou catálogo</p>
+<p>✔ Catálogo / Loja</p>
 <p>✔ Produtos organizados</p>
-<p>✔ Pedido WhatsApp</p>
+<p>✔ Pedido via WhatsApp</p>
+<p>✔ Estrutura profissional</p>
 </div>
 
 </section>
+
+<div class="box">
+<h3>🌐 Hospedagem</h3>
+<p>✔ GitHub Pages grátis (sem mensalidade)</p>
+<p>✔ Domínio .com.br opcional (~R$40/ano)</p>
+<p>✔ Site pronto para evoluir</p>
+</div>
 
 <section class="port">
 <div class="item">Site Empresa</div>
@@ -268,27 +270,19 @@ to{opacity:1;transform:translateY(0)}
 <div class="item">Catálogo</div>
 </section>
 
-<div class="box">
-<h3>🌐 Hospedagem</h3>
-<p>✔ GitHub Pages grátis</p>
-<p>✔ Domínio opcional (R$40/ano)</p>
-<p>✔ Site pronto para crescer</p>
-</div>
-
 <footer>
 📞 (13) 99646-9617<br>
 ✉️ joseluizariel@gmail.com<br>
-© 2026 JL Sites • Agência Premium
+© 2026 JL Sites • Agência Elite
 </footer>
 
 <a class="whats" href="https://wa.me/5513996469617">💬 WhatsApp</a>
 
 <script>
-const cards = document.querySelectorAll('.card');
+const cards=document.querySelectorAll('.card');
 window.addEventListener('scroll',()=>{
 cards.forEach(c=>{
-const top=c.getBoundingClientRect().top;
-if(top<window.innerHeight-50){
+if(c.getBoundingClientRect().top < window.innerHeight-60){
 c.classList.add('show');
 }
 });
