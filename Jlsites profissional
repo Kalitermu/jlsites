@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JL Sites</title>
+<style>
+
+body{
+margin:0;
+font-family:Arial;
+background:#06192b;
+color:white;
+}
+
+header{
+background:linear-gradient(90deg,#003366,#0055aa);
+padding:30px;
+text-align:center;
+}
+
+h1{margin:0}
+
+.menu{
+display:flex;
+justify-content:center;
+gap:15px;
+margin-top:10px;
+flex-wrap:wrap;
+}
+
+.menu a{
+color:white;
+text-decoration:none;
+padding:8px 12px;
+background:#0b2c45;
+border-radius:8px;
+}
+
+.hero{
+text-align:center;
+padding:40px 20px;
+}
+
+.btn{
+background:#25D366;
+padding:12px 20px;
+border-radius:10px;
+text-decoration:none;
+color:black;
+font-weight:bold;
+display:inline-block;
+margin-top:15px;
+}
+
+.planos{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:15px;
+padding:20px;
+}
+
+.card{
+background:#0b2c45;
+padding:20px;
+border-radius:12px;
+width:220px;
+text-align:center;
+}
+
+footer{
+background:#02111f;
+padding:20px;
+text-align:center;
+margin-top:30px;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>JL SITES</h1>
+<p>Criação Profissional de Sites</p>
+
+<div class="menu">
+<a href="#">Início</a>
+<a href="#">Serviços</a>
+<a href="#">Planos</a>
+<a href="#">Contato</a>
+</div>
+</header>
+
+<section class="hero">
+<h2>Transforme sua ideia em realidade!</h2>
+<p>Sites modernos, rápidos e profissionais para empresas e negócios.</p>
+
+<a class="btn"
+href="https://wa.me/5513996469617">
+Pedir Orçamento
+</a>
+</section>
+
+<section class="planos">
+
+<div class="card">
+<h3>Básico</h3>
+<p>Site simples</p>
+<p><b>R$ 299</b></p>
+</div>
+
+<div class="card">
+<h3>Profissional</h3>
+<p>Site completo</p>
+<p><b>R$ 499</b></p>
+</div>
+
+<div class="card">
+<h3>Premium</h3>
+<p>Loja ou catálogo</p>
+<p><b>R$ 799</b></p>
+</div>
+
+</section>
+
+<footer>
+<p>📞 (13) 99646-9617</p>
+<p>✉️ joseluizariel@gmail.com</p>
+</footer>
+
+</body>
+</html>
