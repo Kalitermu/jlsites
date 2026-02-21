@@ -3,199 +3,115 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>JL Sites | Agência Elite</title>
+<title>JL Sites • Agência Premium</title>
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
+*{margin:0;padding:0;box-sizing:border-box;}
+
 body{
-font-family:Arial, sans-serif;
-background:#030b14;
-color:#fff;
-line-height:1.6;
-scroll-behavior:smooth;
+font-family:Arial;
+background:#03111f;
+color:white;
 }
 
-/* ===== FUNDO PREMIUM ===== */
-body:before{
-content:"";
-position:fixed;
-width:200%;
-height:200%;
-background:radial-gradient(circle at center,#0077ff22,#000);
-animation:gira 30s linear infinite;
-z-index:-1;
-}
-@keyframes gira{
-0%{transform:rotate(0)}
-100%{transform:rotate(360deg)}
-}
-
-/* ===== MENU ===== */
+/* HEADER */
 header{
-position:fixed;
-top:0;
-width:100%;
-background:rgba(0,0,0,.6);
-backdrop-filter:blur(10px);
-padding:15px;
+background:linear-gradient(90deg,#003366,#0077ff);
+padding:25px;
 text-align:center;
-z-index:100;
+}
+
+header h1{font-size:32px;}
+header p{opacity:0.9;margin-top:5px;}
+
+nav{
+margin-top:15px;
 }
 nav a{
 color:white;
 text-decoration:none;
 margin:5px;
 padding:8px 14px;
+background:rgba(255,255,255,0.1);
 border-radius:8px;
-background:rgba(255,255,255,.12);
 }
 
-/* ===== HERO ===== */
+/* HERO */
 .hero{
-padding:120px 20px 70px;
 text-align:center;
+padding:50px 20px;
 }
-.hero h1{
-font-size:42px;
-margin-bottom:15px;
-animation:fade 1s;
+.hero h2{
+font-size:30px;
+margin-bottom:10px;
 }
 .hero p{
-max-width:700px;
+max-width:600px;
 margin:auto;
-font-size:18px;
-color:#d7d7d7;
+opacity:0.9;
 }
+
+/* BOTÃO */
 .btn{
 display:inline-block;
 margin-top:20px;
-padding:14px 24px;
+padding:14px 25px;
 background:#25D366;
 color:black;
 font-weight:bold;
 border-radius:10px;
 text-decoration:none;
-transition:.3s;
-}
-.btn:hover{transform:scale(1.05)}
-
-/* ===== CONTADOR ===== */
-.contador{
-display:flex;
-flex-wrap:wrap;
-justify-content:center;
-gap:20px;
-padding:30px;
-}
-.num{
-background:#0b2c45;
-padding:20px;
-min-width:170px;
-border-radius:12px;
-text-align:center;
-box-shadow:0 0 20px rgba(0,0,0,.5);
-}
-.num h2{
-font-size:30px;
-color:#00ffae;
 }
 
-/* ===== PLANOS ===== */
-.planos{
-display:flex;
-flex-wrap:wrap;
-justify-content:center;
-gap:25px;
-padding:40px 20px;
-}
-.card{
-background:#0b2c45;
-width:280px;
-padding:25px;
-border-radius:14px;
-box-shadow:0 0 25px rgba(0,0,0,.5);
-transition:.4s;
-opacity:0;
-transform:translateY(40px);
-}
-.card.show{
-opacity:1;
-transform:translateY(0);
-}
-.card:hover{transform:translateY(-8px)}
-.preco{
-font-size:32px;
-color:#00ffae;
-font-weight:bold;
-margin:10px 0;
-}
-.tag{
-background:#ffcc00;
-color:black;
-padding:4px 8px;
-font-size:12px;
-border-radius:6px;
-display:inline-block;
-margin-bottom:8px;
-}
-
-/* ===== BOX INFO ===== */
-.box{
-max-width:900px;
-margin:20px auto;
-padding:25px;
-background:#06263f;
-border-radius:12px;
-}
-
-/* ===== PORTFÓLIO ===== */
+/* CARDS */
 .port{
 display:flex;
 flex-wrap:wrap;
 justify-content:center;
-gap:15px;
-padding:30px;
+gap:20px;
+padding:40px 20px;
 }
+
 .item{
-width:220px;
-height:120px;
-background:#0b2c45;
-border-radius:10px;
-display:flex;
-align-items:center;
-justify-content:center;
+width:230px;
+background:#0a2c47;
+padding:40px;
+text-align:center;
+border-radius:14px;
+font-size:22px;
 font-weight:bold;
-transition:.3s;
-}
-.item:hover{transform:scale(1.05)}
-
-/* ===== BOTÃO WHATS ===== */
-.whats{
-position:fixed;
-bottom:20px;
-right:20px;
-background:#25D366;
-color:black;
-padding:14px 18px;
-border-radius:50px;
-font-weight:bold;
-text-decoration:none;
-box-shadow:0 0 20px rgba(0,0,0,.6);
+cursor:pointer;
+transition:0.3s;
 }
 
-/* ===== FOOTER ===== */
+.item:hover{
+transform:translateY(-5px);
+background:#0f3c63;
+}
+
+/* BOX DETALHES */
+.box{
+max-width:700px;
+margin:20px auto;
+background:#08233a;
+padding:25px;
+border-radius:12px;
+line-height:1.6;
+}
+
+.box h3{
+font-size:26px;
+margin-bottom:10px;
+color:#00ffae;
+}
+
+/* FOOTER */
 footer{
-background:#000;
+background:#02101d;
 text-align:center;
 padding:20px;
 margin-top:30px;
-font-size:14px;
-}
-
-/* ===== ANIMAÇÃO ===== */
-@keyframes fade{
-from{opacity:0;transform:translateY(20px)}
-to{opacity:1;transform:translateY(0)}
+font-size:15px;
 }
 </style>
 </head>
@@ -203,90 +119,111 @@ to{opacity:1;transform:translateY(0)}
 <body>
 
 <header>
-<h2>JL SITES • Agência Elite</h2>
+<h1>JL SITES</h1>
+<p>Agência Premium • Criação Profissional</p>
+
 <nav>
 <a href="#">Início</a>
+<a href="#">Serviços</a>
 <a href="#">Planos</a>
-<a href="#">Portfólio</a>
 <a href="#">Contato</a>
 </nav>
 </header>
 
 <section class="hero">
-<h1>Sites Profissionais que PASSAM CONFIANÇA 🚀</h1>
-<p>Criação de sites modernos para empresas, lojas e profissionais que querem crescer online.</p>
-<a class="btn" href="https://wa.me/5513996469617">💬 Pedir Orçamento</a>
+<h2>Transforme sua ideia em realidade</h2>
+<p>Sites modernos, rápidos e profissionais para empresas, serviços e lojas.</p>
+
+<a class="btn" href="https://wa.me/5513996469617">
+💬 Pedir Orçamento
+</a>
 </section>
 
-<section class="contador">
-<div class="num"><h2>+50</h2><p>Projetos</p></div>
-<div class="num"><h2>100%</h2><p>Responsivo</p></div>
-<div class="num"><h2>24h</h2><p>Suporte</p></div>
-</section>
-
-<section class="planos">
-
-<div class="card">
-<h3>Plano Básico</h3>
-<div class="preco">R$299</div>
-<p>✔ 1 página profissional</p>
-<p>✔ Botão WhatsApp</p>
-<p>✔ Site moderno</p>
-<p>✔ Publicação grátis</p>
-</div>
-
-<div class="card">
-<span class="tag">MAIS VENDIDO</span>
-<h3>Plano Profissional</h3>
-<div class="preco">R$499</div>
-<p>✔ Até 4 seções</p>
-<p>✔ Layout premium</p>
-<p>✔ SEO básico</p>
-<p>✔ Site online incluso</p>
-</div>
-
-<div class="card">
-<h3>Plano Elite</h3>
-<div class="preco">R$799</div>
-<p>✔ Catálogo / Loja</p>
-<p>✔ Produtos organizados</p>
-<p>✔ Pedido via WhatsApp</p>
-<p>✔ Estrutura profissional</p>
-</div>
-
-</section>
-
-<div class="box">
-<h3>🌐 Hospedagem</h3>
-<p>✔ GitHub Pages grátis (sem mensalidade)</p>
-<p>✔ Domínio .com.br opcional (~R$40/ano)</p>
-<p>✔ Site pronto para evoluir</p>
-</div>
-
+<!-- CARDS CLICÁVEIS -->
 <section class="port">
-<div class="item">Site Empresa</div>
-<div class="item">Loja Online</div>
-<div class="item">Landing Page</div>
-<div class="item">Catálogo</div>
+
+<div class="item" onclick="abrirPlano('empresa')">Site Empresa</div>
+<div class="item" onclick="abrirPlano('loja')">Loja Online</div>
+<div class="item" onclick="abrirPlano('landing')">Landing Page</div>
+<div class="item" onclick="abrirPlano('catalogo')">Catálogo</div>
+
 </section>
+
+<!-- DETALHES -->
+<div id="detalhes" class="box" style="display:none;">
+<h3 id="titulo"></h3>
+<p id="texto"></p>
+</div>
 
 <footer>
 📞 (13) 99646-9617<br>
 ✉️ joseluizariel@gmail.com<br>
-© 2026 JL Sites • Agência Elite
+© 2026 JL Sites • Agência Premium
 </footer>
 
-<a class="whats" href="https://wa.me/5513996469617">💬 WhatsApp</a>
-
 <script>
-const cards=document.querySelectorAll('.card');
-window.addEventListener('scroll',()=>{
-cards.forEach(c=>{
-if(c.getBoundingClientRect().top < window.innerHeight-60){
-c.classList.add('show');
+
+function abrirPlano(tipo){
+
+let titulo="";
+let texto="";
+
+if(tipo=="empresa"){
+titulo="🏢 Site Empresa — R$ 499";
+texto="
+✔ Site completo profissional<br>
+✔ Até 4 seções (Sobre, Serviços, Contato)<br>
+✔ Responsivo celular e PC<br>
+✔ Botão WhatsApp<br>
+✔ Publicação online grátis (GitHub Pages)<br>
+✔ NÃO precisa pagar hospedagem (opcional)<br>
+✔ Entrega rápida
+";
 }
+
+if(tipo=="loja"){
+titulo="🛒 Loja Online — R$ 799";
+texto="
+✔ Catálogo profissional de produtos<br>
+✔ Cards modernos<br>
+✔ Pedido direto no WhatsApp<br>
+✔ Organização por categorias<br>
+✔ Publicação online grátis<br>
+✔ Pode evoluir futuramente para sistema completo
+";
+}
+
+if(tipo=="landing"){
+titulo="🚀 Landing Page — R$ 299";
+texto="
+✔ Página focada em vendas<br>
+✔ Ideal para anúncios Instagram/Google<br>
+✔ Carregamento rápido<br>
+✔ Botão WhatsApp estratégico<br>
+✔ Site já fica online
+";
+}
+
+if(tipo=="catalogo"){
+titulo="📦 Catálogo Digital — R$ 699";
+texto="
+✔ Catálogo profissional<br>
+✔ Produtos organizados<br>
+✔ Visual empresa premium<br>
+✔ Fácil atualização<br>
+✔ Publicação grátis online
+";
+}
+
+document.getElementById("titulo").innerHTML=titulo;
+document.getElementById("texto").innerHTML=texto;
+document.getElementById("detalhes").style.display="block";
+
+window.scrollTo({
+top:document.getElementById("detalhes").offsetTop-80,
+behavior:'smooth'
 });
-});
+}
 </script>
 
 </body>
