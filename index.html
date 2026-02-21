@@ -3,39 +3,37 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>JL Sites • Agência Premium</title>
+<title>JL SITES • Agência Premium</title>
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
+*{margin:0;padding:0;box-sizing:border-box;}
 
 body{
 font-family:Arial;
-background:#031021;
+background:#02121f;
 color:white;
 }
 
 header{
+background:#031b2f;
+padding:20px;
 text-align:center;
-padding:30px;
-background:linear-gradient(90deg,#002244,#0066ff);
 }
 
 header h1{
-font-size:34px;
+font-size:30px;
 }
 
 nav{
-margin-top:15px;
+margin-top:10px;
 }
-
 nav a{
 color:white;
 text-decoration:none;
 margin:5px;
-padding:8px 14px;
-background:rgba(255,255,255,.15);
+padding:8px 12px;
+background:#0b2c45;
 border-radius:8px;
-display:inline-block;
 }
 
 .hero{
@@ -44,17 +42,17 @@ padding:40px 20px;
 }
 
 .btn{
+display:inline-block;
+margin-top:15px;
 background:#25D366;
 color:black;
-padding:14px 22px;
+padding:12px 22px;
 border-radius:10px;
 font-weight:bold;
 text-decoration:none;
-display:inline-block;
-margin-top:20px;
 }
 
-.planos{
+.cards{
 display:flex;
 flex-wrap:wrap;
 justify-content:center;
@@ -63,73 +61,55 @@ padding:20px;
 }
 
 .card{
-background:#0c2b45;
-width:260px;
-padding:40px 20px;
-border-radius:15px;
-text-align:center;
-font-size:26px;
-font-weight:bold;
-cursor:pointer;
-transition:.3s;
-}
-
-.card:hover{
-transform:scale(1.05);
-background:#154a70;
-}
-
-/* MODAL */
-.modal{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,.8);
-display:none;
-justify-content:center;
-align-items:center;
-padding:20px;
-}
-
-.modal-content{
 background:#0b2c45;
-max-width:400px;
-width:100%;
+width:320px;
 border-radius:12px;
 overflow:hidden;
-text-align:center;
+box-shadow:0 0 20px rgba(0,0,0,0.4);
 }
 
-.modal img{
+.card img{
 width:100%;
-height:220px;
+height:180px;
 object-fit:cover;
 }
 
-.modal h2{
-margin:15px;
+.card-content{
+padding:15px;
 }
 
-.modal p{
-padding:0 20px 15px;
-font-size:15px;
-line-height:1.5;
+.card h3{
+font-size:26px;
+margin-bottom:10px;
 }
 
-.fechar{
-background:red;
-color:white;
-padding:10px;
-cursor:pointer;
+.preco{
+font-size:28px;
+color:#00ffae;
+font-weight:bold;
+margin-bottom:10px;
+}
+
+ul{
+padding-left:18px;
+margin-bottom:15px;
+}
+
+.card a{
+display:inline-block;
+background:#25D366;
+padding:10px 15px;
+border-radius:8px;
+text-decoration:none;
+color:black;
+font-weight:bold;
 }
 
 footer{
 text-align:center;
 padding:20px;
-background:#020b16;
-margin-top:20px;
+background:#01101c;
+margin-top:30px;
 }
 </style>
 </head>
@@ -138,99 +118,96 @@ margin-top:20px;
 
 <header>
 <h1>JL SITES • Agência Premium</h1>
-<p>Criação Profissional de Sites</p>
-
 <nav>
 <a href="#">Início</a>
 <a href="#">Planos</a>
-<a href="#">Portfólio</a>
 <a href="#">Contato</a>
 </nav>
 </header>
 
 <section class="hero">
 <h2>Transforme sua ideia em realidade</h2>
-<p>Sites modernos, rápidos e profissionais para empresas, serviços e lojas.</p>
-
+<p>Sites modernos para empresas, lojas e negócios.</p>
 <a class="btn" href="https://wa.me/5513996469617">💬 Pedir Orçamento</a>
 </section>
 
-<section class="planos">
+<section class="cards">
 
-<div class="card" onclick="abrirPlano('empresa')">Site Empresa</div>
-<div class="card" onclick="abrirPlano('loja')">Loja Online</div>
-<div class="card" onclick="abrirPlano('landing')">Landing Page</div>
-<div class="card" onclick="abrirPlano('catalogo')">Catálogo</div>
+<!-- SITE EMPRESA -->
+<div class="card">
+<img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f">
+<div class="card-content">
+<h3>Site Empresa</h3>
+<div class="preco">R$ 299</div>
+<ul>
+<li>Site profissional 1 página</li>
+<li>Design moderno</li>
+<li>Botão WhatsApp</li>
+<li>Responsivo (celular)</li>
+<li>Hospedagem grátis (GitHub Pages)</li>
+</ul>
+<a href="https://wa.me/5513996469617">Quero este</a>
+</div>
+</div>
+
+<!-- LOJA ONLINE -->
+<div class="card">
+<img src="https://images.unsplash.com/photo-1556740749-887f6717d7e4">
+<div class="card-content">
+<h3>Loja Online</h3>
+<div class="preco">R$ 799</div>
+<ul>
+<li>Catálogo de produtos</li>
+<li>Carrinho simples</li>
+<li>Pedido via WhatsApp</li>
+<li>Fotos dos produtos</li>
+<li>Base pronta pra crescer</li>
+</ul>
+<a href="https://wa.me/5513996469617">Quero este</a>
+</div>
+</div>
+
+<!-- LANDING PAGE -->
+<div class="card">
+<img src="https://images.unsplash.com/photo-1559028012-481c04fa702d">
+<div class="card-content">
+<h3>Landing Page</h3>
+<div class="preco">R$ 499</div>
+<ul>
+<li>Página de vendas profissional</li>
+<li>Foco em conversão</li>
+<li>Ideal para anúncios</li>
+<li>Botão direto WhatsApp</li>
+<li>SEO básico</li>
+</ul>
+<a href="https://wa.me/5513996469617">Quero este</a>
+</div>
+</div>
+
+<!-- CATALOGO -->
+<div class="card">
+<img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c">
+<div class="card-content">
+<h3>Catálogo</h3>
+<div class="preco">R$ 599</div>
+<ul>
+<li>Produtos organizados</li>
+<li>Visual profissional</li>
+<li>Sem pagamento online</li>
+<li>Ideal para WhatsApp</li>
+<li>Atualização fácil</li>
+</ul>
+<a href="https://wa.me/5513996469617">Quero este</a>
+</div>
+</div>
 
 </section>
-
-<!-- MODAL -->
-<div class="modal" id="modal">
-<div class="modal-content">
-
-<div class="fechar" onclick="fecharModal()">FECHAR ✖</div>
-
-<img id="imgPlano">
-
-<h2 id="tituloPlano"></h2>
-<p id="textoPlano"></p>
-
-<a class="btn" id="botaoPlano" target="_blank">Quero esse plano</a>
-
-</div>
-</div>
 
 <footer>
 📞 (13) 99646-9617<br>
 ✉️ joseluizariel@gmail.com<br>
 © 2026 JL Sites • Agência Premium
 </footer>
-
-<script>
-
-function abrirPlano(tipo){
-
-let titulo="";
-let texto="";
-let imagem="";
-
-if(tipo=="empresa"){
-titulo="Site Empresa";
-imagem="https://images.unsplash.com/photo-1460925895917-afdab827c52f";
-texto="💰 Valor médio: R$ 499\n\n✔ Site institucional\n✔ Até 4 páginas\n✔ Responsivo\n✔ SEO básico\n✔ Hospedagem gratuita no GitHub Pages\n\n⏱ Online em até 2 dias.";
-}
-
-if(tipo=="loja"){
-titulo="Loja Online";
-imagem="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d";
-texto="💰 Valor médio: R$ 799\n\n✔ Loja/catálogo\n✔ Produtos organizados\n✔ Pedido via WhatsApp\n✔ Layout profissional\n\n⏱ Online em até 3 dias.";
-}
-
-if(tipo=="landing"){
-titulo="Landing Page";
-imagem="https://images.unsplash.com/photo-1559028012-481c04fa702d";
-texto="💰 Valor médio: R$ 299\n\n✔ Página única\n✔ Alta conversão\n✔ Botão WhatsApp\n✔ Ideal para anúncios\n\n⏱ Online em 1 dia.";
-}
-
-if(tipo=="catalogo"){
-titulo="Catálogo";
-imagem="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a";
-texto="💰 Valor médio: R$ 699\n\n✔ Produtos organizados\n✔ Categorias\n✔ Fácil atualização\n✔ Base pronta para evoluir\n\n⏱ Online em até 2 dias.";
-}
-
-document.getElementById("tituloPlano").innerText=titulo;
-document.getElementById("textoPlano").innerText=texto;
-document.getElementById("imgPlano").src=imagem;
-document.getElementById("botaoPlano").href="https://wa.me/5513996469617?text=Olá quero o plano "+titulo;
-
-document.getElementById("modal").style.display="flex";
-}
-
-function fecharModal(){
-document.getElementById("modal").style.display="none";
-}
-
-</script>
 
 </body>
 </html>
