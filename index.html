@@ -3,115 +3,102 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>JL Sites • Agência Premium</title>
+<title>JL SITES • Agência Premium</title>
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
 
 body{
 font-family:Arial;
-background:#03111f;
+background:#02101d;
 color:white;
 }
 
-/* HEADER */
 header{
-background:linear-gradient(90deg,#003366,#0077ff);
-padding:25px;
 text-align:center;
+padding:25px;
+background:#031a2f;
+box-shadow:0 4px 20px rgba(0,0,0,0.4);
 }
 
-header h1{font-size:32px;}
-header p{opacity:0.9;margin-top:5px;}
+header h1{
+font-size:32px;
+}
 
 nav{
 margin-top:15px;
 }
+
 nav a{
 color:white;
 text-decoration:none;
-margin:5px;
-padding:8px 14px;
-background:rgba(255,255,255,0.1);
-border-radius:8px;
-}
-
-/* HERO */
-.hero{
-text-align:center;
-padding:50px 20px;
-}
-.hero h2{
-font-size:30px;
-margin-bottom:10px;
-}
-.hero p{
-max-width:600px;
-margin:auto;
-opacity:0.9;
-}
-
-/* BOTÃO */
-.btn{
-display:inline-block;
-margin-top:20px;
-padding:14px 25px;
-background:#25D366;
-color:black;
-font-weight:bold;
+background:#132d45;
+padding:10px 15px;
 border-radius:10px;
-text-decoration:none;
+margin:5px;
+display:inline-block;
 }
 
-/* CARDS */
-.port{
+.cards{
+padding:30px;
 display:flex;
-flex-wrap:wrap;
-justify-content:center;
+flex-direction:column;
 gap:20px;
-padding:40px 20px;
+align-items:center;
 }
 
-.item{
-width:230px;
-background:#0a2c47;
+.card{
+width:90%;
+max-width:350px;
+background:#0b2f4a;
 padding:40px;
+border-radius:15px;
 text-align:center;
-border-radius:14px;
-font-size:22px;
+font-size:26px;
 font-weight:bold;
 cursor:pointer;
-transition:0.3s;
+transition:.3s;
 }
 
-.item:hover{
-transform:translateY(-5px);
-background:#0f3c63;
+.card:hover{
+transform:scale(1.03);
+background:#11476d;
 }
 
-/* BOX DETALHES */
-.box{
-max-width:700px;
-margin:20px auto;
-background:#08233a;
+#detalhes{
+display:none;
 padding:25px;
+max-width:500px;
+margin:auto;
+background:#08263d;
 border-radius:12px;
-line-height:1.6;
+margin-top:20px;
 }
 
-.box h3{
-font-size:26px;
-margin-bottom:10px;
-color:#00ffae;
+#detalhes img{
+width:100%;
+border-radius:10px;
+margin-bottom:15px;
 }
 
-/* FOOTER */
 footer{
-background:#02101d;
+margin-top:40px;
 text-align:center;
+background:#010b14;
 padding:20px;
-margin-top:30px;
-font-size:15px;
+font-size:18px;
+}
+
+.whats{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25D366;
+color:black;
+padding:14px 20px;
+border-radius:30px;
+font-weight:bold;
+text-decoration:none;
 }
 </style>
 </head>
@@ -119,39 +106,38 @@ font-size:15px;
 <body>
 
 <header>
-<h1>JL SITES</h1>
-<p>Agência Premium • Criação Profissional</p>
+<h1>JL SITES • Agência Premium</h1>
 
 <nav>
 <a href="#">Início</a>
-<a href="#">Serviços</a>
 <a href="#">Planos</a>
+<a href="#">Portfólio</a>
 <a href="#">Contato</a>
 </nav>
 </header>
 
-<section class="hero">
-<h2>Transforme sua ideia em realidade</h2>
-<p>Sites modernos, rápidos e profissionais para empresas, serviços e lojas.</p>
+<section class="cards">
 
-<a class="btn" href="https://wa.me/5513996469617">
-💬 Pedir Orçamento
-</a>
+<div class="card" onclick="abrirPlano('empresa')">
+Site Empresa
+</div>
+
+<div class="card" onclick="abrirPlano('loja')">
+Loja Online
+</div>
+
+<div class="card" onclick="abrirPlano('landing')">
+Landing Page
+</div>
+
+<div class="card" onclick="abrirPlano('catalogo')">
+Catálogo
+</div>
+
 </section>
 
-<!-- CARDS CLICÁVEIS -->
-<section class="port">
-
-<div class="item" onclick="abrirPlano('empresa')">Site Empresa</div>
-<div class="item" onclick="abrirPlano('loja')">Loja Online</div>
-<div class="item" onclick="abrirPlano('landing')">Landing Page</div>
-<div class="item" onclick="abrirPlano('catalogo')">Catálogo</div>
-
-</section>
-
-<!-- DETALHES -->
-<div id="detalhes" class="box" style="display:none;">
-<h3 id="titulo"></h3>
+<div id="detalhes">
+<h2 id="titulo"></h2>
 <p id="texto"></p>
 </div>
 
@@ -161,58 +147,55 @@ font-size:15px;
 © 2026 JL Sites • Agência Premium
 </footer>
 
+<a class="whats" href="https://wa.me/5513996469617">WhatsApp</a>
+
 <script>
 
 function abrirPlano(tipo){
 
 let titulo="";
 let texto="";
+let imagem="";
 
 if(tipo=="empresa"){
 titulo="🏢 Site Empresa — R$ 499";
-texto="
-✔ Site completo profissional<br>
-✔ Até 4 seções (Sobre, Serviços, Contato)<br>
-✔ Responsivo celular e PC<br>
-✔ Botão WhatsApp<br>
-✔ Publicação online grátis (GitHub Pages)<br>
-✔ NÃO precisa pagar hospedagem (opcional)<br>
-✔ Entrega rápida
-";
+imagem="https://images.unsplash.com/photo-1460925895917-afdab827c52f";
+texto="<img src='"+imagem+"'>"+
+"✔ Site profissional para empresas<br>"+
+"✔ Até 4 páginas<br>"+
+"✔ WhatsApp integrado<br>"+
+"✔ Publicação online grátis<br>"+
+"✔ Não precisa pagar hospedagem";
 }
 
 if(tipo=="loja"){
 titulo="🛒 Loja Online — R$ 799";
-texto="
-✔ Catálogo profissional de produtos<br>
-✔ Cards modernos<br>
-✔ Pedido direto no WhatsApp<br>
-✔ Organização por categorias<br>
-✔ Publicação online grátis<br>
-✔ Pode evoluir futuramente para sistema completo
-";
+imagem="https://images.unsplash.com/photo-1515169067868-5387ec356754";
+texto="<img src='"+imagem+"'>"+
+"✔ Loja com produtos<br>"+
+"✔ Pedido via WhatsApp<br>"+
+"✔ Layout moderno<br>"+
+"✔ Base pronta pra crescer";
 }
 
 if(tipo=="landing"){
 titulo="🚀 Landing Page — R$ 299";
-texto="
-✔ Página focada em vendas<br>
-✔ Ideal para anúncios Instagram/Google<br>
-✔ Carregamento rápido<br>
-✔ Botão WhatsApp estratégico<br>
-✔ Site já fica online
-";
+imagem="https://images.unsplash.com/photo-1461749280684-dccba630e2f6";
+texto="<img src='"+imagem+"'>"+
+"✔ Página focada em vendas<br>"+
+"✔ Ideal para anúncios<br>"+
+"✔ Carregamento rápido<br>"+
+"✔ Site já online";
 }
 
 if(tipo=="catalogo"){
-titulo="📦 Catálogo Digital — R$ 699";
-texto="
-✔ Catálogo profissional<br>
-✔ Produtos organizados<br>
-✔ Visual empresa premium<br>
-✔ Fácil atualização<br>
-✔ Publicação grátis online
-";
+titulo="📦 Catálogo — R$ 699";
+imagem="https://images.unsplash.com/photo-1503602642458-232111445657";
+texto="<img src='"+imagem+"'>"+
+"✔ Catálogo digital profissional<br>"+
+"✔ Produtos organizados<br>"+
+"✔ Visual agência premium<br>"+
+"✔ Fácil atualização";
 }
 
 document.getElementById("titulo").innerHTML=titulo;
@@ -224,6 +207,7 @@ top:document.getElementById("detalhes").offsetTop-80,
 behavior:'smooth'
 });
 }
+
 </script>
 
 </body>
