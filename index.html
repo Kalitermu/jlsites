@@ -1,165 +1,708 @@
 <!doctype html>
 <html lang="pt-br">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>JL Sites - Criação Profissional</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JL Sites - Criação Profissional</title>
 
-<style>
-*{margin:0;padding:0;box-sizing:border-box;}
+  <style>
+    :root{
+      --bg:#041321;
+      --panel:#0b2c45;
+      --panel2:#06233a;
+      --text:#ffffff;
+      --muted:rgba(255,255,255,.75);
+      --line:rgba(255,255,255,.12);
+      --brand:#0077ff;
+      --brand2:#003366;
+      --ok:#25D366;
+      --accent:#00ffae;
+      --shadow:0 14px 40px rgba(0,0,0,.45);
+      --radius:16px;
+    }
 
-body{
-font-family:Arial;
-background:#041321;
-color:white;
-}
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{
+      font-family: Arial, sans-serif;
+      background: radial-gradient(1000px 500px at 20% 10%, rgba(0,119,255,.18), transparent 60%),
+                  radial-gradient(900px 500px at 80% 0%, rgba(0,255,174,.12), transparent 60%),
+                  linear-gradient(#03101c, var(--bg));
+      color:var(--text);
+    }
 
-header{
-background:linear-gradient(90deg,#003366,#0077ff);
-padding:30px;
-text-align:center;
-box-shadow:0 5px 20px rgba(0,0,0,0.4);
-}
+    a{color:inherit}
 
-header h1{
-font-size:36px;
-letter-spacing:2px;
-}
+    .wrap{max-width:1100px;margin:0 auto;padding:0 16px;}
+    .topbar{
+      position:sticky;top:0;z-index:10;
+      backdrop-filter: blur(10px);
+      background: rgba(4,19,33,.75);
+      border-bottom: 1px solid var(--line);
+    }
 
-nav{
-margin-top:15px;
-}
+    header{
+      padding:18px 0;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+    }
 
-nav a{
-color:white;
-text-decoration:none;
-margin:0 10px;
-padding:8px 14px;
-border-radius:8px;
-background:rgba(255,255,255,0.1);
-}
+    .brand{
+      display:flex;align-items:center;gap:12px;
+    }
+    .logo{
+      width:42px;height:42px;border-radius:14px;
+      background: linear-gradient(135deg, var(--brand2), var(--brand));
+      box-shadow: 0 8px 24px rgba(0,119,255,.25);
+      display:grid;place-items:center;
+      font-weight:900;
+    }
+    .brand h1{font-size:18px;letter-spacing:1px;}
+    .brand p{font-size:12px;color:var(--muted);margin-top:2px;}
 
-.hero{
-text-align:center;
-padding:60px 20px;
-background:linear-gradient(#041321,#06233a);
-}
+    nav{
+      display:flex;flex-wrap:wrap;gap:8px;justify-content:flex-end;
+    }
+    nav button{
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.06);
+      color:#fff;
+      padding:9px 12px;
+      border-radius: 12px;
+      cursor:pointer;
+      transition:.2s;
+      font-weight:700;
+      font-size:13px;
+    }
+    nav button:hover{transform: translateY(-1px);}
+    nav button.active{
+      border-color: rgba(0,119,255,.55);
+      background: rgba(0,119,255,.18);
+    }
 
-.hero h2{
-font-size:32px;
-margin-bottom:15px;
-}
+    .hero{
+      padding:40px 0 22px;
+    }
+    .heroGrid{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap:16px;
+      align-items:stretch;
+    }
+    @media (max-width: 860px){
+      .heroGrid{grid-template-columns:1fr;}
+    }
 
-.hero p{
-font-size:18px;
-max-width:600px;
-margin:auto;
-}
+    .card{
+      background: linear-gradient(180deg, rgba(11,44,69,.95), rgba(6,35,58,.95));
+      border:1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
 
-.btn{
-display:inline-block;
-margin-top:20px;
-background:#25D366;
-color:black;
-padding:14px 25px;
-border-radius:10px;
-font-weight:bold;
-text-decoration:none;
-}
+    .heroMain{padding:26px;}
+    .kicker{
+      display:inline-flex;gap:8px;align-items:center;
+      border:1px solid var(--line);
+      padding:8px 12px;border-radius:999px;
+      color:var(--muted);
+      background: rgba(255,255,255,.05);
+      font-size:12px;
+      margin-bottom:14px;
+    }
+    .heroMain h2{font-size:34px;line-height:1.1;margin-bottom:10px;}
+    .heroMain p{color:var(--muted);font-size:16px;max-width:62ch;}
+    .ctaRow{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px;}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;gap:10px;
+      padding:12px 16px;
+      border-radius:14px;
+      font-weight:800;
+      text-decoration:none;
+      border:1px solid transparent;
+      cursor:pointer;
+      transition:.2s;
+      user-select:none;
+      font-size:14px;
+    }
+    .btnPrimary{
+      background: var(--ok);
+      color:#00130a;
+      box-shadow: 0 10px 24px rgba(37,211,102,.22);
+    }
+    .btnGhost{
+      background: rgba(255,255,255,.06);
+      border-color: var(--line);
+      color:#fff;
+    }
+    .btn:hover{transform: translateY(-1px);}
 
-.planos{
-display:flex;
-flex-wrap:wrap;
-justify-content:center;
-gap:20px;
-padding:40px 20px;
-}
+    .heroSide{padding:18px;}
+    .heroSide h3{font-size:16px;margin-bottom:10px;}
+    .badges{
+      display:grid;gap:10px;
+      grid-template-columns: 1fr;
+    }
+    .badge{
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      border-radius:14px;
+      padding:12px;
+    }
+    .badge b{display:block;margin-bottom:4px;}
+    .badge span{color:var(--muted);font-size:13px;}
 
-.card{
-background:#0b2c45;
-padding:25px;
-border-radius:12px;
-width:250px;
-text-align:center;
-box-shadow:0 0 20px rgba(0,0,0,0.4);
-transition:0.3s;
-}
+    .content{padding:18px 0 50px;}
+    .tab{display:none;}
+    .tab.active{display:block;}
 
-.card:hover{
-transform:translateY(-5px);
-}
+    .section{
+      margin-top:16px;
+      padding:20px;
+    }
+    .section h3{font-size:20px;margin-bottom:8px;}
+    .section p{color:var(--muted);}
 
-.card h3{
-margin-bottom:10px;
-font-size:24px;
-}
+    .grid3{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:12px;
+      margin-top:12px;
+    }
+    @media (max-width: 860px){
+      .grid3{grid-template-columns:1fr;}
+    }
 
-.preco{
-font-size:26px;
-color:#00ffae;
-margin-top:10px;
-font-weight:bold;
-}
+    .mini{
+      padding:16px;border-radius:16px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.04);
+    }
+    .mini h4{font-size:16px;margin-bottom:6px;}
+    .mini ul{margin-top:8px;padding-left:18px;color:var(--muted);font-size:14px;line-height:1.55;}
+    .mini li{margin:6px 0;}
 
-footer{
-background:#02111f;
-text-align:center;
-padding:20px;
-margin-top:30px;
-font-size:15px;
-}
-</style>
+    .pricing{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:12px;
+      margin-top:14px;
+    }
+    @media (max-width: 980px){
+      .pricing{grid-template-columns:1fr;}
+    }
+
+    .plan{
+      padding:18px;
+      position:relative;
+      overflow:hidden;
+    }
+    .tag{
+      position:absolute;top:14px;right:14px;
+      padding:6px 10px;
+      border-radius:999px;
+      font-size:12px;
+      font-weight:900;
+      background: rgba(0,255,174,.14);
+      border:1px solid rgba(0,255,174,.25);
+      color: var(--accent);
+    }
+    .plan h4{font-size:18px;margin-bottom:6px;}
+    .price{
+      font-size:30px;
+      font-weight:900;
+      color: var(--accent);
+      margin:10px 0 8px;
+    }
+    .plan p{color:var(--muted);font-size:14px;}
+    .plan ul{margin-top:10px;padding-left:18px;color:var(--muted);font-size:14px;line-height:1.55;}
+    .plan li{margin:6px 0;}
+    .plan .btn{margin-top:12px;width:100%}
+
+    .compare{
+      margin-top:14px;
+      overflow:auto;
+      border-radius:16px;
+      border:1px solid var(--line);
+    }
+    table{
+      width:100%;
+      border-collapse:collapse;
+      min-width:720px;
+      background: rgba(255,255,255,.03);
+    }
+    th, td{
+      border-bottom:1px solid var(--line);
+      padding:12px 12px;
+      text-align:left;
+      font-size:14px;
+      color: var(--muted);
+    }
+    th{color:#fff;background: rgba(255,255,255,.05);}
+    td b{color:#fff}
+    .yes{color:var(--accent);font-weight:900}
+    .no{color:rgba(255,255,255,.35);font-weight:900}
+
+    .portfolio{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:12px;
+      margin-top:12px;
+    }
+    @media (max-width: 980px){
+      .portfolio{grid-template-columns:1fr;}
+    }
+    .shot{
+      padding:14px;
+      border:1px solid var(--line);
+      border-radius:16px;
+      background: rgba(255,255,255,.04);
+    }
+    .shot .thumb{
+      height:120px;
+      border-radius:14px;
+      background: linear-gradient(135deg, rgba(0,119,255,.25), rgba(0,255,174,.18));
+      border:1px solid var(--line);
+      margin-bottom:10px;
+    }
+    .shot b{display:block;margin-bottom:4px;}
+    .shot span{color:var(--muted);font-size:13px;}
+
+    .faq{
+      display:grid;
+      gap:10px;
+      margin-top:12px;
+    }
+    details{
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      border-radius:16px;
+      padding:12px 14px;
+    }
+    summary{
+      cursor:pointer;
+      font-weight:900;
+    }
+    details p{margin-top:10px;color:var(--muted);}
+
+    .contactGrid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:12px;
+      margin-top:12px;
+    }
+    @media (max-width: 860px){
+      .contactGrid{grid-template-columns:1fr;}
+    }
+    .contactBox{
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      border-radius:16px;
+      padding:16px;
+    }
+    .contactBox b{display:block;margin-bottom:6px;}
+    .contactBox a{color:var(--accent);font-weight:900;text-decoration:none;}
+    .muted{color:var(--muted);}
+
+    .waFloat{
+      position:fixed;
+      right:16px;
+      bottom:16px;
+      z-index:20;
+      border-radius:999px;
+      padding:12px 14px;
+      background: var(--ok);
+      color:#00130a;
+      text-decoration:none;
+      font-weight:900;
+      box-shadow: 0 16px 40px rgba(0,0,0,.45);
+      display:flex;align-items:center;gap:10px;
+    }
+
+    footer{
+      border-top:1px solid var(--line);
+      background: rgba(2,17,31,.9);
+      padding:20px 0;
+      color: var(--muted);
+      font-size:13px;
+      margin-top:24px;
+    }
+    footer .row{
+      display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;
+    }
+    .small{font-size:12px;color:rgba(255,255,255,.55);}
+  </style>
 </head>
 
 <body>
+  <div class="topbar">
+    <div class="wrap">
+      <header>
+        <div class="brand">
+          <div class="logo">JL</div>
+          <div>
+            <h1>JL SITES</h1>
+            <p>Criação Profissional de Sites</p>
+          </div>
+        </div>
 
-<header>
-<h1>JL SITES</h1>
-<p>Criação Profissional de Sites</p>
+        <nav>
+          <button class="active" data-tab="inicio">Início</button>
+          <button data-tab="servicos">Serviços</button>
+          <button data-tab="planos">Planos</button>
+          <button data-tab="portfolio">Portfólio</button>
+          <button data-tab="faq">FAQ</button>
+          <button data-tab="contato">Contato</button>
+        </nav>
+      </header>
+    </div>
+  </div>
 
-<nav>
-<a href="#">Início</a>
-<a href="#">Serviços</a>
-<a href="#">Planos</a>
-<a href="#">Contato</a>
-</nav>
-</header>
+  <main class="wrap">
+    <section class="hero">
+      <div class="heroGrid">
+        <div class="card heroMain">
+          <div class="kicker">⚡ Site rápido • 📱 Responsivo • 🔍 SEO básico</div>
+          <h2>Transforme sua ideia em realidade.</h2>
+          <p>
+            Eu crio sites modernos e profissionais para empresas, serviços e lojas.
+            Você recebe um site pronto para divulgar no WhatsApp, Instagram e Google.
+          </p>
 
-<section class="hero">
-<h2>Transforme sua ideia em realidade!</h2>
-<p>Sites modernos, rápidos e profissionais para empresas e negócios.</p>
+          <div class="ctaRow">
+            <a class="btn btnPrimary" id="ctaWpp" href="#">Pedir orçamento no WhatsApp</a>
+            <button class="btn btnGhost" id="ctaPlanos">Ver planos</button>
+          </div>
+        </div>
 
-<a class="btn" href="https://wa.me/5513996469617">
-Pedir Orçamento
-</a>
-</section>
+        <div class="card heroSide">
+          <h3>O que você ganha</h3>
+          <div class="badges">
+            <div class="badge"><b>✅ Design moderno</b><span>Visual de empresa e confiança pro cliente.</span></div>
+            <div class="badge"><b>✅ Site no ar</b><span>Publicação no GitHub Pages (grátis) ou onde você quiser.</span></div>
+            <div class="badge"><b>✅ Suporte</b><span>Ajustes e orientações após a entrega.</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<section class="planos">
+    <section class="content">
 
-<div class="card">
-<h3>Básico</h3>
-<p>Site simples</p>
-<div class="preco">R$ 299</div>
-</div>
+      <!-- INÍCIO -->
+      <div class="card section tab active" id="inicio">
+        <h3>Comece com um site que vende</h3>
+        <p>
+          Um bom site ajuda você a passar credibilidade e fechar mais clientes.
+          Aqui você encontra planos claros, entrega rápida e foco total no resultado.
+        </p>
 
-<div class="card">
-<h3>Profissional</h3>
-<p>Site completo</p>
-<div class="preco">R$ 499</div>
-</div>
+        <div class="grid3">
+          <div class="mini">
+            <h4>📌 Para quem é</h4>
+            <ul>
+              <li>Profissionais autônomos</li>
+              <li>Barbearias, salões, serviços</li>
+              <li>Pequenas empresas</li>
+              <li>Lojas e catálogos</li>
+            </ul>
+          </div>
+          <div class="mini">
+            <h4>⏱️ Entrega</h4>
+            <ul>
+              <li>Prazo combinado com você</li>
+              <li>Revisões no caminho</li>
+              <li>Site responsivo (celular)</li>
+              <li>Orientação para publicar</li>
+            </ul>
+          </div>
+          <div class="mini">
+            <h4>🧠 Diferenciais</h4>
+            <ul>
+              <li>Textos prontos e objetivos</li>
+              <li>Botão WhatsApp com mensagem</li>
+              <li>SEO básico (título/descrição)</li>
+              <li>Estrutura profissional</li>
+            </ul>
+          </div>
+        </div>
+      </div>
 
-<div class="card">
-<h3>Premium</h3>
-<p>Loja ou catálogo</p>
-<div class="preco">R$ 799</div>
-</div>
+      <!-- SERVIÇOS -->
+      <div class="card section tab" id="servicos">
+        <h3>Serviços</h3>
+        <p>Escolha o tipo de site ideal para o seu negócio.</p>
 
-</section>
+        <div class="grid3">
+          <div class="mini">
+            <h4>🏢 Site Institucional</h4>
+            <ul>
+              <li>Quem somos</li>
+              <li>Serviços</li>
+              <li>Contato e mapa</li>
+              <li>Botão WhatsApp</li>
+            </ul>
+          </div>
+          <div class="mini">
+            <h4>📄 Landing Page</h4>
+            <ul>
+              <li>Uma página para vender</li>
+              <li>Foco em conversão</li>
+              <li>Chamada para ação</li>
+              <li>Seções objetivas</li>
+            </ul>
+          </div>
+          <div class="mini">
+            <h4>🛒 Catálogo / Loja</h4>
+            <ul>
+              <li>Produtos e categorias</li>
+              <li>Pedido via WhatsApp</li>
+              <li>Organização profissional</li>
+              <li>Base para evoluir</li>
+            </ul>
+          </div>
+        </div>
+      </div>
 
-<footer>
-📞 (13) 99646-9617<br>
-✉️ joseluizariel@gmail.com
-</footer>
+      <!-- PLANOS -->
+      <div class="card section tab" id="planos">
+        <h3>Planos</h3>
+        <p>Transparente e fácil: escolha um plano e comece hoje.</p>
 
+        <div class="pricing">
+          <div class="mini plan">
+            <h4>Básico</h4>
+            <p>Ideal para começar e divulgar no WhatsApp.</p>
+            <div class="price">R$ 299</div>
+            <ul>
+              <li>1 página (landing simples)</li>
+              <li>Design responsivo</li>
+              <li>Botão WhatsApp</li>
+              <li>SEO básico</li>
+            </ul>
+            <a class="btn btnPrimary" href="#" onclick="contratar('Básico')">Contratar Básico</a>
+          </div>
+
+          <div class="mini plan">
+            <div class="tag">Mais vendido</div>
+            <h4>Profissional</h4>
+            <p>Site completo para empresa e serviços.</p>
+            <div class="price">R$ 499</div>
+            <ul>
+              <li>Até 4 seções/páginas</li>
+              <li>Serviços + Sobre + Contato</li>
+              <li>Botões e chamadas</li>
+              <li>Publicação no GitHub Pages</li>
+            </ul>
+            <a class="btn btnPrimary" href="#" onclick="contratar('Profissional')">Contratar Profissional</a>
+          </div>
+
+          <div class="mini plan">
+            <h4>Premium</h4>
+            <p>Catálogo/loja com produtos e organização.</p>
+            <div class="price">R$ 799</div>
+            <ul>
+              <li>Catálogo com produtos</li>
+              <li>Categorias e cards</li>
+              <li>Pedido por WhatsApp</li>
+              <li>Base pronta para evoluir</li>
+            </ul>
+            <a class="btn btnPrimary" href="#" onclick="contratar('Premium')">Contratar Premium</a>
+          </div>
+        </div>
+
+        <div class="compare">
+          <table>
+            <thead>
+              <tr>
+                <th>O que inclui</th>
+                <th>Básico</th>
+                <th>Profissional</th>
+                <th>Premium</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><b>Design responsivo</b></td>
+                <td class="yes">✔</td><td class="yes">✔</td><td class="yes">✔</td>
+              </tr>
+              <tr>
+                <td><b>Botão WhatsApp</b></td>
+                <td class="yes">✔</td><td class="yes">✔</td><td class="yes">✔</td>
+              </tr>
+              <tr>
+                <td><b>SEO básico</b></td>
+                <td class="yes">✔</td><td class="yes">✔</td><td class="yes">✔</td>
+              </tr>
+              <tr>
+                <td><b>Até 4 páginas/seções</b></td>
+                <td class="no">—</td><td class="yes">✔</td><td class="yes">✔</td>
+              </tr>
+              <tr>
+                <td><b>Catálogo/Produtos</b></td>
+                <td class="no">—</td><td class="no">—</td><td class="yes">✔</td>
+              </tr>
+              <tr>
+                <td><b>Publicação no GitHub Pages</b></td>
+                <td class="no">—</td><td class="yes">✔</td><td class="yes">✔</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="grid3" style="margin-top:14px">
+          <div class="mini">
+            <h4>➕ Extras (opcionais)</h4>
+            <ul>
+              <li>Domínio .com.br</li>
+              <li>E-mail profissional</li>
+              <li>Google Meu Negócio (orientação)</li>
+              <li>Atualizações mensais</li>
+            </ul>
+          </div>
+          <div class="mini">
+            <h4>🛡️ Segurança básica</h4>
+            <ul>
+              <li>HTTPS (quando publicado)</li>
+              <li>Boas práticas de código</li>
+              <li>Orientação para senhas</li>
+              <li>Backup do projeto</li>
+            </ul>
+          </div>
+          <div class="mini">
+            <h4>📌 O que eu preciso de você</h4>
+            <ul>
+              <li>Nome do negócio</li>
+              <li>Logo (se tiver)</li>
+              <li>Fotos/serviços</li>
+              <li>WhatsApp e endereço</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- PORTFÓLIO -->
+      <div class="card section tab" id="portfolio">
+        <h3>Portfólio</h3>
+        <p>Coloque aqui seus projetos. Depois você troca pelos seus links reais.</p>
+
+        <div class="portfolio">
+          <div class="shot">
+            <div class="thumb"></div>
+            <b>Loja Online (modelo)</b>
+            <span>HTML/CSS • Pedido por WhatsApp</span>
+          </div>
+          <div class="shot">
+            <div class="thumb"></div>
+            <b>Site Institucional</b>
+            <span>Serviços • Sobre • Contato</span>
+          </div>
+          <div class="shot">
+            <div class="thumb"></div>
+            <b>Landing Page</b>
+            <span>Foco em conversão</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ -->
+      <div class="card section tab" id="faq">
+        <h3>Perguntas frequentes</h3>
+        <p>Tira-dúvidas rápido (isso ajuda MUITO a fechar cliente).</p>
+
+        <div class="faq">
+          <details>
+            <summary>Em quanto tempo fica pronto?</summary>
+            <p>Depende do plano e do material (logo/fotos/textos). Normalmente, após você enviar tudo, eu monto e a gente ajusta.</p>
+          </details>
+          <details>
+            <summary>O site funciona no celular?</summary>
+            <p>Sim. Todos os sites são responsivos (celular, tablet e PC).</p>
+          </details>
+          <details>
+            <summary>Posso mudar textos e fotos depois?</summary>
+            <p>Sim. Você pode pedir alterações, e também posso oferecer um plano mensal de atualizações.</p>
+          </details>
+          <details>
+            <summary>Como faço para colocar no domínio .com.br?</summary>
+            <p>Eu te ajudo no passo a passo. O domínio é pago por ano, mas dá muita credibilidade.</p>
+          </details>
+        </div>
+      </div>
+
+      <!-- CONTATO -->
+      <div class="card section tab" id="contato">
+        <h3>Contato</h3>
+        <p>Chama no WhatsApp e me fala seu tipo de site. Eu respondo com orçamento.</p>
+
+        <div class="contactGrid">
+          <div class="contactBox">
+            <b>📞 WhatsApp</b>
+            <div class="muted">Clique para abrir com mensagem pronta:</div>
+            <p style="margin-top:10px">
+              <a href="#" onclick="contratar('Orçamento')">Pedir orçamento agora</a>
+            </p>
+          </div>
+
+          <div class="contactBox">
+            <b>✉️ E-mail</b>
+            <p class="muted" style="margin-top:6px;">joseluizariel@gmail.com</p>
+            <p class="small" style="margin-top:10px;">Atendimento: Praia Grande e região (online também).</p>
+          </div>
+        </div>
+      </div>
+
+    </section>
+  </main>
+
+  <a class="waFloat" href="#" onclick="contratar('Orçamento')">💬 WhatsApp</a>
+
+  <footer>
+    <div class="wrap">
+      <div class="row">
+        <div>© <span id="ano"></span> JL Sites • Criação Profissional de Sites</div>
+        <div class="small">Feito com HTML/CSS/JS • Publicado no GitHub Pages</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const tabs = document.querySelectorAll("nav button");
+    const pages = document.querySelectorAll(".tab");
+    const ano = document.getElementById("ano");
+    ano.textContent = new Date().getFullYear();
+
+    function openTab(id){
+      tabs.forEach(b => b.classList.toggle("active", b.dataset.tab === id));
+      pages.forEach(p => p.classList.toggle("active", p.id === id));
+      window.scrollTo({top: 0, behavior: "smooth"});
+    }
+
+    tabs.forEach(btn => {
+      btn.addEventListener("click", () => openTab(btn.dataset.tab));
+    });
+
+    document.getElementById("ctaPlanos").addEventListener("click", () => openTab("planos"));
+
+    const wppNumber = "5513996469617";
+    function wppUrl(msg){
+      return "https://wa.me/" + wppNumber + "?text=" + encodeURIComponent(msg);
+    }
+
+    function contratar(plano){
+      const msg =
+        "Olá! Quero um site com a JL Sites. Plano: " + plano +
+        ".\n\nMeu negócio é: (escreva aqui)\nPreciso de: (site institucional/landing/loja)\nPrazo: (quando precisa)\n";
+      window.open(wppUrl(msg), "_blank");
+    }
+
+    // CTA principal abre WhatsApp com mensagem
+    document.getElementById("ctaWpp").href = wppUrl(
+      "Olá! Quero um site com a JL Sites. Pode me passar um orçamento? Meu negócio é: (escreva aqui)."
+    );
+
+    // expor a função para os links inline
+    window.contratar = contratar;
+  </script>
 </body>
 </html>
