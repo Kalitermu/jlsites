@@ -10,42 +10,61 @@
 
 body{
 font-family:Arial;
-background:#03111d;
 color:white;
-line-height:1.6;
+background:#020b14;
+overflow-x:hidden;
 }
 
-/* HEADER */
-header{
-background:linear-gradient(90deg,#003366,#008cff);
-padding:25px;
-text-align:center;
-box-shadow:0 5px 20px rgba(0,0,0,.5);
+/* FUNDO ANIMADO */
+body:before{
+content:"";
+position:fixed;
+width:200%;
+height:200%;
+background:radial-gradient(circle,#0044ff22,#000000);
+animation:gira 20s linear infinite;
+z-index:-1;
 }
-nav{margin-top:15px}
+@keyframes gira{
+0%{transform:rotate(0deg)}
+100%{transform:rotate(360deg)}
+}
+
+/* MENU */
+header{
+position:sticky;
+top:0;
+background:rgba(0,0,0,.7);
+backdrop-filter:blur(10px);
+padding:18px;
+text-align:center;
+z-index:100;
+}
 nav a{
 color:white;
 text-decoration:none;
-margin:4px;
-padding:8px 14px;
-background:rgba(255,255,255,.15);
+margin:6px;
+padding:8px 12px;
+background:rgba(255,255,255,.1);
 border-radius:8px;
 }
 
 /* HERO */
 .hero{
-padding:70px 20px;
+padding:90px 20px;
 text-align:center;
-background:linear-gradient(#03111d,#06263f);
+animation:fade 1.2s;
 }
-.hero h2{
-font-size:36px;
+.hero h1{
+font-size:40px;
 margin-bottom:15px;
 }
 .hero p{
 max-width:700px;
 margin:auto;
+font-size:18px;
 }
+
 .btn{
 display:inline-block;
 margin-top:20px;
@@ -53,16 +72,18 @@ background:#25D366;
 color:black;
 padding:14px 25px;
 border-radius:10px;
-text-decoration:none;
 font-weight:bold;
+text-decoration:none;
+transition:.3s;
 }
+.btn:hover{transform:scale(1.08)}
 
-/* PLANOS */
+/* PLANOS 3D */
 .planos{
 display:flex;
 flex-wrap:wrap;
-gap:20px;
 justify-content:center;
+gap:25px;
 padding:40px 20px;
 }
 
@@ -70,82 +91,88 @@ padding:40px 20px;
 background:#0b2c45;
 width:280px;
 padding:25px;
-border-radius:12px;
-box-shadow:0 0 20px rgba(0,0,0,.4);
-transition:.3s;
+border-radius:15px;
+box-shadow:0 0 25px rgba(0,0,0,.5);
+transform-style:preserve-3d;
+transition:.4s;
 }
 .card:hover{
-transform:translateY(-8px) scale(1.02);
+transform:rotateY(8deg) translateY(-10px);
 }
+
 .preco{
-font-size:30px;
+font-size:32px;
 color:#00ffaa;
 font-weight:bold;
-margin:10px 0;
+margin:12px 0;
 }
+
 .tag{
-background:#ffb400;
+background:#ffcc00;
 color:black;
-padding:5px 8px;
+padding:4px 8px;
+border-radius:5px;
 font-size:12px;
-border-radius:6px;
 display:inline-block;
-margin-bottom:10px;
+margin-bottom:8px;
 }
 
-/* PORTFOLIO */
-.portfolio{
-padding:40px 20px;
-text-align:center;
-}
-.port-grid{
-display:flex;
-flex-wrap:wrap;
-gap:15px;
-justify-content:center;
-margin-top:20px;
-}
-.port{
-background:#0b2c45;
-width:200px;
-height:120px;
-border-radius:10px;
-display:flex;
-align-items:center;
-justify-content:center;
-font-weight:bold;
-}
-
-/* INFO BOX */
+/* SEÇÃO */
 .box{
-background:#06263f;
+background:rgba(11,44,69,.8);
 max-width:900px;
 margin:20px auto;
 padding:25px;
 border-radius:12px;
 }
 
-/* WHATSAPP FLUTUANTE */
+/* PORTFÓLIO */
+.port{
+display:flex;
+flex-wrap:wrap;
+gap:15px;
+justify-content:center;
+padding:30px;
+}
+.item{
+width:220px;
+height:120px;
+background:#0b2c45;
+border-radius:10px;
+display:flex;
+align-items:center;
+justify-content:center;
+font-weight:bold;
+transition:.3s;
+}
+.item:hover{transform:scale(1.05)}
+
+/* WHATS FLUTUANTE */
 .whats{
 position:fixed;
 bottom:20px;
 right:20px;
 background:#25D366;
 color:black;
-padding:14px 16px;
+padding:14px 18px;
 border-radius:50px;
-text-decoration:none;
 font-weight:bold;
-box-shadow:0 0 15px rgba(0,0,0,.5);
+text-decoration:none;
+box-shadow:0 0 20px rgba(0,0,0,.6);
 }
 
 /* FOOTER */
 footer{
-background:#02111f;
 text-align:center;
 padding:20px;
 margin-top:30px;
+background:#000;
 font-size:14px;
+}
+
+@keyframes fade{
+from{opacity:0;transform:translateY(20px)}
+to{opacity:1;transform:translateY(0)}
 }
 </style>
 </head>
@@ -153,9 +180,7 @@ font-size:14px;
 <body>
 
 <header>
-<h1>JL SITES</h1>
-<p>Agência Premium • Sites Profissionais</p>
-
+<h2>JL SITES • Agência Premium</h2>
 <nav>
 <a href="#">Início</a>
 <a href="#">Planos</a>
@@ -165,70 +190,57 @@ font-size:14px;
 </header>
 
 <section class="hero">
-<h2>Transforme sua ideia em um site profissional 🚀</h2>
-<p>Sites modernos, rápidos e prontos para divulgar no WhatsApp, Instagram e Google.</p>
-<a class="btn" href="https://wa.me/5513996469617">Pedir Orçamento</a>
+<h1>Sites Profissionais que Vendem 🚀</h1>
+<p>Criação de sites modernos para empresas, lojas e profissionais. Visual premium que passa confiança e atrai clientes.</p>
+<a class="btn" href="https://wa.me/5513996469617">💬 Pedir Orçamento</a>
 </section>
 
 <section class="planos">
 
 <div class="card">
 <h3>Básico</h3>
-<div class="preco">R$ 299</div>
-<p>• 1 página profissional</p>
-<p>• Botão WhatsApp</p>
-<p>• Site responsivo</p>
-<p>• Entrega rápida</p>
+<div class="preco">R$299</div>
+<p>✔ Página profissional</p>
+<p>✔ Botão WhatsApp</p>
+<p>✔ Site responsivo</p>
 </div>
 
 <div class="card">
 <span class="tag">MAIS VENDIDO</span>
 <h3>Profissional</h3>
-<div class="preco">R$ 499</div>
-<p>• Até 4 seções</p>
-<p>• Layout premium</p>
-<p>• Publicação online</p>
-<p>• SEO básico</p>
+<div class="preco">R$499</div>
+<p>✔ Até 4 seções</p>
+<p>✔ Layout premium</p>
+<p>✔ SEO básico</p>
 </div>
 
 <div class="card">
-<h3>Premium</h3>
-<div class="preco">R$ 799</div>
-<p>• Catálogo / Loja</p>
-<p>• Produtos organizados</p>
-<p>• Pedido via WhatsApp</p>
-<p>• Base pronta p/ crescer</p>
+<h3>Agência Premium</h3>
+<div class="preco">R$799</div>
+<p>✔ Catálogo ou loja</p>
+<p>✔ Produtos organizados</p>
+<p>✔ Pedido WhatsApp</p>
 </div>
 
 </section>
 
-<section class="portfolio">
-<h2>💼 Portfólio</h2>
-<p>Exemplos de projetos profissionais</p>
-
-<div class="port-grid">
-<div class="port">Site Empresa</div>
-<div class="port">Loja Online</div>
-<div class="port">Landing Page</div>
-<div class="port">Catálogo</div>
+<div class="box">
+<h3>🌐 Hospedagem</h3>
+<p>✔ GitHub Pages grátis (sem mensalidade)</p>
+<p>✔ Domínio opcional (~ R$40/ano)</p>
+<p>✔ Site pronto para crescer</p>
 </div>
+
+<section class="port">
+<div class="item">Site Empresa</div>
+<div class="item">Loja Online</div>
+<div class="item">Landing Page</div>
+<div class="item">Catálogo</div>
 </section>
-
-<div class="box">
-<h3>🌐 Hospedagem e custos</h3>
-<p>✔ Publicação grátis no GitHub Pages</p>
-<p>✔ Não precisa pagar mensalidade no começo</p>
-<p>✔ Domínio .com.br opcional (≈ R$40/ano)</p>
-</div>
-
-<div class="box">
-<h3>💰 Pagamento</h3>
-<p>50% para iniciar e 50% na entrega com site online.</p>
-</div>
 
 <footer>
 📞 (13) 99646-9617<br>
-✉️ joseluizariel@gmail.com<br><br>
+✉️ joseluizariel@gmail.com<br>
 © 2026 JL Sites • Agência Premium
 </footer>
 
