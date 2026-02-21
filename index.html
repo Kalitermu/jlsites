@@ -15,23 +15,20 @@ color:white;
 }
 
 header{
-background:#041b2d;
-padding:20px;
 text-align:center;
+padding:20px;
+background:#041b2d;
 }
 
-header h1{
-font-size:32px;
-margin-bottom:10px;
-}
+header h1{font-size:32px;margin-bottom:10px;}
 
 nav a{
 color:white;
 text-decoration:none;
 margin:5px;
-padding:8px 15px;
+padding:8px 12px;
 background:rgba(255,255,255,0.1);
-border-radius:10px;
+border-radius:8px;
 display:inline-block;
 }
 
@@ -42,10 +39,10 @@ padding:30px 20px;
 
 .btn{
 background:#25D366;
-color:black;
 padding:12px 20px;
-border-radius:10px;
+color:black;
 font-weight:bold;
+border-radius:10px;
 text-decoration:none;
 display:inline-block;
 margin-top:15px;
@@ -60,21 +57,19 @@ padding:20px;
 }
 
 .card{
+background:#0b2f4d;
 width:90%;
 max-width:350px;
-background:#0b2f4d;
-padding:40px;
+padding:35px;
 text-align:center;
-border-radius:15px;
 font-size:28px;
 font-weight:bold;
+border-radius:15px;
 cursor:pointer;
 transition:0.3s;
 }
 
-.card:hover{
-transform:scale(1.03);
-}
+.card:hover{transform:scale(1.04);}
 
 /* MODAL */
 .modal{
@@ -84,18 +79,17 @@ top:0;
 left:0;
 width:100%;
 height:100%;
-background:rgba(0,0,0,0.7);
+background:rgba(0,0,0,0.8);
 justify-content:center;
 align-items:center;
-z-index:999;
 }
 
 .modal-content{
 background:#041b2d;
-width:90%;
-max-width:400px;
 padding:20px;
 border-radius:15px;
+width:90%;
+max-width:400px;
 text-align:center;
 }
 
@@ -106,13 +100,12 @@ margin-bottom:15px;
 }
 
 .fechar{
-background:red;
-border:none;
-color:white;
-padding:8px 14px;
-border-radius:8px;
 margin-top:10px;
-cursor:pointer;
+padding:8px 12px;
+border:none;
+background:red;
+color:white;
+border-radius:8px;
 }
 
 footer{
@@ -129,28 +122,25 @@ font-size:18px;
 <h1>JL SITES • Agência Premium</h1>
 <nav>
 <a href="#">Início</a>
+<a href="#">Serviços</a>
 <a href="#">Planos</a>
-<a href="#">Portfólio</a>
 <a href="#">Contato</a>
 </nav>
 </header>
 
 <section class="hero">
 <h2>Transforme sua ideia em realidade</h2>
-<p>Sites modernos, rápidos e profissionais</p>
+<p>Sites modernos, rápidos e profissionais para empresas, serviços e lojas.</p>
 <a class="btn" href="https://wa.me/5513996469617">💬 Pedir Orçamento</a>
 </section>
 
 <section class="planos">
-
 <div class="card" onclick="abrirPlano('empresa')">Site Empresa</div>
 <div class="card" onclick="abrirPlano('loja')">Loja Online</div>
 <div class="card" onclick="abrirPlano('landing')">Landing Page</div>
 <div class="card" onclick="abrirPlano('catalogo')">Catálogo</div>
-
 </section>
 
-<!-- MODAL -->
 <div class="modal" id="modal">
 <div class="modal-content">
 <img id="imgPlano">
@@ -167,35 +157,32 @@ font-size:18px;
 </footer>
 
 <script>
-
 function abrirPlano(tipo){
 
-let titulo="";
-let texto="";
-let imagem="";
+let titulo="",texto="",imagem="";
 
 if(tipo=="empresa"){
 titulo="Site Empresa";
-texto="Site profissional para negócios. Até 4 seções, WhatsApp e design moderno.";
-imagem="https://images.unsplash.com/photo-1460925895917-afdab827c52f";
+texto="Site profissional para negócios com até 4 seções.";
+imagem="https://picsum.photos/400/250?1";
 }
 
 if(tipo=="loja"){
 titulo="Loja Online";
-texto="Loja com produtos, cards e pedido via WhatsApp.";
-imagem="https://images.unsplash.com/photo-1522202176988-66273c2fd55f";
+texto="Loja com produtos e pedidos via WhatsApp.";
+imagem="https://picsum.photos/400/250?2";
 }
 
 if(tipo=="landing"){
 titulo="Landing Page";
-texto="Página focada em vendas e anúncios.";
-imagem="https://images.unsplash.com/photo-1519389950473-47ba0277781c";
+texto="Página única focada em vendas.";
+imagem="https://picsum.photos/400/250?3";
 }
 
 if(tipo=="catalogo"){
 titulo="Catálogo";
-texto="Catálogo moderno para mostrar produtos ou serviços.";
-imagem="https://images.unsplash.com/photo-1441986300917-64674bd600d8";
+texto="Catálogo moderno para produtos e serviços.";
+imagem="https://picsum.photos/400/250?4";
 }
 
 document.getElementById("titulo").innerText=titulo;
@@ -208,7 +195,6 @@ document.getElementById("modal").style.display="flex";
 function fechar(){
 document.getElementById("modal").style.display="none";
 }
-
 </script>
 
 </body>
