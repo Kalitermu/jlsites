@@ -1,576 +1,198 @@
 <!doctype html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>JL Sites - Criação de Sites</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JL Sites | Agência Premium</title>
 
-  <meta name="description" content="Criação de sites modernos: landing page, site para empresas e catálogo. Botão WhatsApp, responsivo e pronto para publicar." />
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+font-family:Arial;
+background:#041321;
+color:white;
+line-height:1.6;
+}
 
-  <style>
-    :root{
-      --bg:#041321;
-      --panel:#0b2c45;
-      --panel2:#06233a;
-      --text:#ffffff;
-      --muted:rgba(255,255,255,.75);
-      --line:rgba(255,255,255,.12);
-      --brand:#0077ff;
-      --brand2:#003366;
-      --ok:#25D366;
-      --accent:#00ffae;
-      --shadow:0 14px 40px rgba(0,0,0,.45);
-      --radius:16px;
-    }
+/* HEADER */
+header{
+background:linear-gradient(90deg,#003366,#0077ff);
+padding:25px;
+text-align:center;
+}
+nav{margin-top:15px}
+nav a{
+color:white;text-decoration:none;
+margin:5px;padding:8px 12px;
+background:rgba(255,255,255,.15);
+border-radius:8px;
+}
 
-    *{margin:0;padding:0;box-sizing:border-box;}
-    body{
-      font-family: Arial, sans-serif;
-      background: radial-gradient(1000px 500px at 20% 10%, rgba(0,119,255,.18), transparent 60%),
-                  radial-gradient(900px 500px at 80% 0%, rgba(0,255,174,.12), transparent 60%),
-                  linear-gradient(#03101c, var(--bg));
-      color:var(--text);
-    }
+/* HERO */
+.hero{
+padding:60px 20px;
+text-align:center;
+background:linear-gradient(#041321,#06233a);
+}
+.hero h2{font-size:34px}
+.hero p{max-width:750px;margin:auto;margin-top:15px}
+.btn{
+display:inline-block;
+margin-top:20px;
+background:#25D366;
+color:black;
+font-weight:bold;
+padding:14px 26px;
+border-radius:10px;
+text-decoration:none;
+}
 
-    a{color:inherit;text-decoration:none}
+/* INFO */
+.info{
+max-width:900px;
+margin:auto;
+padding:40px 20px;
+}
+.info h3{margin-bottom:15px}
 
-    .wrap{max-width:1100px;margin:0 auto;padding:0 16px;}
-    .topbar{
-      position:sticky;top:0;z-index:10;
-      backdrop-filter: blur(10px);
-      background: rgba(4,19,33,.75);
-      border-bottom: 1px solid var(--line);
-    }
+/* PLANOS */
+.planos{
+display:flex;
+flex-wrap:wrap;
+gap:20px;
+justify-content:center;
+padding:30px;
+}
+.card{
+background:#0b2c45;
+width:280px;
+padding:25px;
+border-radius:12px;
+box-shadow:0 0 20px rgba(0,0,0,.4);
+transition:.3s;
+}
+.card:hover{transform:translateY(-6px)}
+.preco{
+font-size:32px;
+color:#00ffae;
+font-weight:bold;
+margin:10px 0;
+}
+.tag{
+background:#ffb400;
+color:black;
+padding:4px 8px;
+font-size:12px;
+border-radius:6px;
+display:inline-block;
+margin-bottom:10px;
+}
 
-    header{
-      padding:18px 0;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:12px;
-    }
+/* HOSPEDAGEM */
+.box{
+background:#06233a;
+max-width:900px;
+margin:20px auto;
+padding:25px;
+border-radius:12px;
+}
 
-    .brand{display:flex;align-items:center;gap:12px;}
-    .logo{
-      width:42px;height:42px;border-radius:14px;
-      background: linear-gradient(135deg, var(--brand2), var(--brand));
-      box-shadow: 0 8px 24px rgba(0,119,255,.25);
-      display:grid;place-items:center;
-      font-weight:900;
-    }
-    .brand h1{font-size:18px;letter-spacing:1px;}
-    .brand p{font-size:12px;color:var(--muted);margin-top:2px;}
+/* FOOTER */
+footer{
+margin-top:30px;
+background:#02111f;
+text-align:center;
+padding:20px;
+font-size:14px;
+}
+</style>
 
-    nav{display:flex;flex-wrap:wrap;gap:8px;justify-content:flex-end;}
-    nav a{
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.06);
-      color:#fff;
-      padding:9px 12px;
-      border-radius: 12px;
-      cursor:pointer;
-      transition:.2s;
-      font-weight:700;
-      font-size:13px;
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-    }
-    nav a:hover{transform: translateY(-1px);}
-    nav a.active{
-      border-color: rgba(0,119,255,.55);
-      background: rgba(0,119,255,.18);
-    }
-
-    .hero{padding:40px 0 22px;}
-    .heroGrid{
-      display:grid;
-      grid-template-columns: 1.2fr .8fr;
-      gap:16px;
-      align-items:stretch;
-    }
-    @media (max-width: 860px){ .heroGrid{grid-template-columns:1fr;} }
-
-    .card{
-      background: linear-gradient(180deg, rgba(11,44,69,.95), rgba(6,35,58,.95));
-      border:1px solid var(--line);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-    }
-
-    .heroMain{padding:26px;}
-    .kicker{
-      display:inline-flex;gap:8px;align-items:center;
-      border:1px solid var(--line);
-      padding:8px 12px;border-radius:999px;
-      color:var(--muted);
-      background: rgba(255,255,255,.05);
-      font-size:12px;
-      margin-bottom:14px;
-    }
-    .heroMain h2{font-size:34px;line-height:1.1;margin-bottom:10px;}
-    .heroMain p{color:var(--muted);font-size:16px;max-width:62ch;}
-
-    .ctaRow{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px;}
-    .btn{
-      display:inline-flex;align-items:center;justify-content:center;gap:10px;
-      padding:12px 16px;border-radius:14px;
-      font-weight:800;border:1px solid transparent;
-      cursor:pointer;transition:.2s;user-select:none;font-size:14px;
-    }
-    .btnPrimary{
-      background: var(--ok);
-      color:#00130a;
-      box-shadow: 0 10px 24px rgba(37,211,102,.22);
-    }
-    .btnGhost{
-      background: rgba(255,255,255,.06);
-      border-color: var(--line);
-      color:#fff;
-    }
-    .btn:hover{transform: translateY(-1px);}
-
-    .heroSide{padding:18px;}
-    .heroSide h3{font-size:16px;margin-bottom:10px;}
-    .badges{display:grid;gap:10px;}
-    .badge{
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.04);
-      border-radius:14px;
-      padding:12px;
-    }
-    .badge b{display:block;margin-bottom:4px;}
-    .badge span{color:var(--muted);font-size:13px;}
-
-    .content{padding:18px 0 50px;}
-    .tab{display:none;}
-    .tab.active{display:block;}
-
-    .section{margin-top:16px;padding:20px;}
-    .section h3{font-size:20px;margin-bottom:8px;}
-    .section p{color:var(--muted);}
-
-    .grid3{
-      display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap:12px;
-      margin-top:12px;
-    }
-    @media (max-width: 860px){ .grid3{grid-template-columns:1fr;} }
-
-    .mini{
-      padding:16px;border-radius:16px;
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.04);
-    }
-    .mini h4{font-size:16px;margin-bottom:6px;}
-    .mini ul{margin-top:8px;padding-left:18px;color:var(--muted);font-size:14px;line-height:1.55;}
-    .mini li{margin:6px 0;}
-
-    .pricing{
-      display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap:12px;
-      margin-top:14px;
-    }
-    @media (max-width: 980px){ .pricing{grid-template-columns:1fr;} }
-
-    .plan{padding:18px;position:relative;overflow:hidden;}
-    .tag{
-      position:absolute;top:14px;right:14px;
-      padding:6px 10px;border-radius:999px;
-      font-size:12px;font-weight:900;
-      background: rgba(0,255,174,.14);
-      border:1px solid rgba(0,255,174,.25);
-      color: var(--accent);
-    }
-    .plan h4{font-size:18px;margin-bottom:6px;}
-    .price{font-size:30px;font-weight:900;color: var(--accent);margin:10px 0 8px;}
-    .plan p{color:var(--muted);font-size:14px;}
-    .plan ul{margin-top:10px;padding-left:18px;color:var(--muted);font-size:14px;line-height:1.55;}
-    .plan li{margin:6px 0;}
-    .plan .btn{margin-top:12px;width:100%}
-
-    .portfolio{
-      display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap:12px;
-      margin-top:12px;
-    }
-    @media (max-width: 980px){ .portfolio{grid-template-columns:1fr;} }
-    .shot{
-      padding:14px;border:1px solid var(--line);
-      border-radius:16px;background: rgba(255,255,255,.04);
-    }
-    .shot .thumb{
-      height:120px;border-radius:14px;
-      background: linear-gradient(135deg, rgba(0,119,255,.25), rgba(0,255,174,.18));
-      border:1px solid var(--line);
-      margin-bottom:10px;
-    }
-    .shot b{display:block;margin-bottom:4px;}
-    .shot span{color:var(--muted);font-size:13px;}
-
-    .faq{display:grid;gap:10px;margin-top:12px;}
-    details{
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.04);
-      border-radius:16px;
-      padding:12px 14px;
-    }
-    summary{cursor:pointer;font-weight:900;}
-    details p{margin-top:10px;color:var(--muted);}
-
-    .contactGrid{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap:12px;
-      margin-top:12px;
-    }
-    @media (max-width: 860px){ .contactGrid{grid-template-columns:1fr;} }
-    .contactBox{
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.04);
-      border-radius:16px;
-      padding:16px;
-    }
-    .contactBox b{display:block;margin-bottom:6px;}
-    .contactBox a{color:var(--accent);font-weight:900;}
-    .muted{color:var(--muted);}
-
-    .waFloat{
-      position:fixed;right:16px;bottom:16px;z-index:20;
-      border-radius:999px;padding:12px 14px;
-      background: var(--ok);color:#00130a;
-      font-weight:900;box-shadow: 0 16px 40px rgba(0,0,0,.45);
-      display:flex;align-items:center;gap:10px;
-    }
-
-    footer{
-      border-top:1px solid var(--line);
-      background: rgba(2,17,31,.9);
-      padding:20px 0;color: var(--muted);
-      font-size:13px;margin-top:24px;
-    }
-    footer .row{
-      display:flex;flex-wrap:wrap;gap:10px;
-      align-items:center;justify-content:space-between;
-    }
-    .small{font-size:12px;color:rgba(255,255,255,.55);}
-  </style>
 </head>
 
 <body>
-  <div class="topbar">
-    <div class="wrap">
-      <header>
-        <div class="brand">
-          <div class="logo">JL</div>
-          <div>
-            <h1>JL SITES</h1>
-            <p>Sites modernos e diretos</p>
-          </div>
-        </div>
 
-        <nav>
-          <a class="active" data-tab="inicio" href="#inicio">Início</a>
-          <a data-tab="servicos" href="#servicos">Serviços</a>
-          <a data-tab="planos" href="#planos">Planos</a>
-          <a data-tab="portfolio" href="#portfolio">Portfólio</a>
-          <a data-tab="faq" href="#faq">FAQ</a>
-          <a data-tab="contato" href="#contato">Contato</a>
-        </nav>
-      </header>
-    </div>
-  </div>
+<header>
+<h1>JL SITES</h1>
+<p>Agência Premium • Criação Profissional de Sites</p>
 
-  <main class="wrap">
-    <section class="hero">
-      <div class="heroGrid">
-        <div class="card heroMain">
-          <div class="kicker">⚡ Rápido • 📱 Responsivo • 💬 WhatsApp</div>
-          <h2>Seu site no ar, do jeito certo.</h2>
-          <p>
-            Eu crio sites simples e bonitos para você divulgar e fechar clientes.
-            Já vem com botão de WhatsApp e pronto para publicar.
-          </p>
+<nav>
+<a href="#">Início</a>
+<a href="#">Planos</a>
+<a href="#">Hospedagem</a>
+<a href="#">Contato</a>
+</nav>
+</header>
 
-          <div class="ctaRow">
-            <a class="btn btnPrimary" id="ctaWpp" href="javascript:void(0)">Pedir orçamento no WhatsApp</a>
-            <button class="btn btnGhost" id="ctaPlanos" type="button">Ver planos</button>
-          </div>
-        </div>
+<section class="hero">
+<h2>Transformo sua ideia em um site profissional</h2>
+<p>Sites rápidos, modernos e prontos para divulgar no WhatsApp, Instagram e Google.</p>
+<a class="btn" href="https://wa.me/5513996469617">💬 Falar no WhatsApp</a>
+</section>
 
-        <div class="card heroSide">
-          <h3>Você recebe</h3>
-          <div class="badges">
-            <div class="badge"><b>✅ Visual profissional</b><span>Para passar confiança.</span></div>
-            <div class="badge"><b>✅ Site responsivo</b><span>Funciona no celular e PC.</span></div>
-            <div class="badge"><b>✅ Publicação</b><span>Ajudo a colocar no ar (GitHub Pages).</span></div>
-          </div>
-        </div>
-      </div>
-    </section>
+<section class="info">
+<h3>🚀 O que você recebe</h3>
+<p>✔ Design profissional de agência</p>
+<p>✔ Site online pronto para clientes</p>
+<p>✔ SEO básico para aparecer no Google</p>
+<p>✔ Suporte e orientação após entrega</p>
+</section>
 
-    <section class="content">
+<section class="planos">
 
-      <!-- INÍCIO -->
-      <div class="card section tab active" id="inicio">
-        <h3>Um site simples que ajuda você a vender</h3>
-        <p>Textos diretos, botões certos e estrutura limpa pra conversão.</p>
+<div class="card">
+<h3>Básico</h3>
+<div class="preco">R$ 299</div>
+<p>• 1 página profissional</p>
+<p>• Botão WhatsApp</p>
+<p>• Site responsivo</p>
+<p>• Ideal para divulgação rápida</p>
+<p><b>⏱ Entrega:</b> até 3 dias</p>
+</div>
 
-        <div class="grid3">
-          <div class="mini">
-            <h4>📌 Ideal para</h4>
-            <ul>
-              <li>Serviços e autônomos</li>
-              <li>Pequenas empresas</li>
-              <li>Lojas e catálogos</li>
-            </ul>
-          </div>
-          <div class="mini">
-            <h4>⏱️ Entrega</h4>
-            <ul>
-              <li>Prazo combinado</li>
-              <li>Revisões durante a criação</li>
-              <li>Orientação pra publicar</li>
-            </ul>
-          </div>
-          <div class="mini">
-            <h4>💬 Conversão</h4>
-            <ul>
-              <li>WhatsApp com mensagem pronta</li>
-              <li>Seções objetivas</li>
-              <li>FAQ ajuda a fechar</li>
-            </ul>
-          </div>
-        </div>
-      </div>
+<div class="card">
+<span class="tag">MAIS VENDIDO</span>
+<h3>Profissional</h3>
+<div class="preco">R$ 499</div>
+<p>• Até 4 seções/páginas</p>
+<p>• Serviços + Sobre + Contato</p>
+<p>• Layout premium</p>
+<p>• Publicação online incluída</p>
+<p><b>⏱ Entrega:</b> 5 a 7 dias</p>
+</div>
 
-      <!-- SERVIÇOS -->
-      <div class="card section tab" id="servicos">
-        <h3>Serviços</h3>
-        <p>Escolha o tipo de site:</p>
+<div class="card">
+<h3>Premium</h3>
+<div class="preco">R$ 799</div>
+<p>• Catálogo / loja online</p>
+<p>• Produtos organizados</p>
+<p>• Pedido via WhatsApp</p>
+<p>• Base pronta para crescer</p>
+<p><b>⏱ Entrega:</b> 7 a 10 dias</p>
+</div>
 
-        <div class="grid3">
-          <div class="mini">
-            <h4>🏢 Site Empresa</h4>
-            <ul>
-              <li>Sobre</li>
-              <li>Serviços</li>
-              <li>Contato</li>
-            </ul>
-          </div>
-          <div class="mini">
-            <h4>📄 Landing Page</h4>
-            <ul>
-              <li>Uma página</li>
-              <li>Foco em pedido no WhatsApp</li>
-              <li>Rápida e direta</li>
-            </ul>
-          </div>
-          <div class="mini">
-            <h4>🛒 Catálogo</h4>
-            <ul>
-              <li>Produtos em cards</li>
-              <li>Categorias</li>
-              <li>Pedido via WhatsApp</li>
-            </ul>
-          </div>
-        </div>
-      </div>
+</section>
 
-      <!-- PLANOS -->
-      <div class="card section tab" id="planos">
-        <h3>Planos</h3>
-        <p>Escolha e me chama no WhatsApp:</p>
+<div class="box">
+<h3>🌐 Como funciona a hospedagem?</h3>
+<p>✔ Publicação GRATIS no GitHub Pages (sem mensalidade)</p>
+<p>✔ Não precisa pagar hospedagem no início</p>
+<p>✔ Se quiser algo mais profissional depois:</p>
+<p>→ Domínio .com.br (aprox. R$40/ano)</p>
+<p>→ Hospedagem profissional opcional (cliente escolhe)</p>
+</div>
 
-        <div class="pricing">
-          <div class="mini plan">
-            <h4>Básico</h4>
-            <p>Para divulgar rápido.</p>
-            <div class="price">R$ 299</div>
-            <ul>
-              <li>1 página</li>
-              <li>Responsivo</li>
-              <li>Botão WhatsApp</li>
-            </ul>
-            <button class="btn btnPrimary" type="button" onclick="contratar('Básico')">Contratar</button>
-          </div>
+<div class="box">
+<h3>💰 Pagamento</h3>
+<p>• 50% para iniciar o projeto</p>
+<p>• 50% na entrega com site online</p>
+<p>• Ajustes simples inclusos</p>
+</div>
 
-          <div class="mini plan">
-            <div class="tag">Mais vendido</div>
-            <h4>Profissional</h4>
-            <p>Para empresa e serviços.</p>
-            <div class="price">R$ 499</div>
-            <ul>
-              <li>Até 4 seções/páginas</li>
-              <li>Serviços + Sobre + Contato</li>
-              <li>Publicação no GitHub Pages</li>
-            </ul>
-            <button class="btn btnPrimary" type="button" onclick="contratar('Profissional')">Contratar</button>
-          </div>
+<footer>
+📞 (13) 99646-9617<br>
+✉️ joseluizariel@gmail.com<br><br>
+© 2026 JL Sites • Agência Premium
+</footer>
 
-          <div class="mini plan">
-            <h4>Premium</h4>
-            <p>Catálogo com produtos.</p>
-            <div class="price">R$ 799</div>
-            <ul>
-              <li>Produtos e categorias</li>
-              <li>Cards organizados</li>
-              <li>Pedido via WhatsApp</li>
-            </ul>
-            <button class="btn btnPrimary" type="button" onclick="contratar('Premium')">Contratar</button>
-          </div>
-        </div>
-
-        <div class="grid3" style="margin-top:14px">
-          <div class="mini">
-            <h4>➕ Extras</h4>
-            <ul>
-              <li>Domínio .com.br</li>
-              <li>E-mail profissional</li>
-              <li>Atualizações mensais</li>
-            </ul>
-          </div>
-          <div class="mini">
-            <h4>🛡️ Básico</h4>
-            <ul>
-              <li>HTTPS pela hospedagem</li>
-              <li>Projeto com backup</li>
-              <li>Boas práticas no código</li>
-            </ul>
-          </div>
-          <div class="mini">
-            <h4>📌 Preciso de você</h4>
-            <ul>
-              <li>Nome do negócio</li>
-              <li>WhatsApp</li>
-              <li>Fotos/serviços</li>
-              <li>Endereço (se tiver)</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <!-- PORTFÓLIO -->
-      <div class="card section tab" id="portfolio">
-        <h3>Portfólio</h3>
-        <p>Depois você troca pelos seus links reais.</p>
-
-        <div class="portfolio">
-          <div class="shot">
-            <div class="thumb"></div>
-            <b>Loja / Catálogo</b>
-            <span>Pedido por WhatsApp</span>
-          </div>
-          <div class="shot">
-            <div class="thumb"></div>
-            <b>Site Empresa</b>
-            <span>Serviços • Contato</span>
-          </div>
-          <div class="shot">
-            <div class="thumb"></div>
-            <b>Landing Page</b>
-            <span>Uma página de vendas</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- FAQ -->
-      <div class="card section tab" id="faq">
-        <h3>FAQ</h3>
-        <p>Respostas curtas (ajuda a fechar).</p>
-
-        <div class="faq">
-          <details>
-            <summary>Em quanto tempo fica pronto?</summary>
-            <p>Depende do material (fotos e infos). Depois que você enviar, eu monto e ajusto com você.</p>
-          </details>
-          <details>
-            <summary>Funciona no celular?</summary>
-            <p>Sim. Responsivo no celular, tablet e PC.</p>
-          </details>
-          <details>
-            <summary>Dá pra mudar depois?</summary>
-            <p>Sim. Você pode pedir alterações ou ter atualizações mensais.</p>
-          </details>
-        </div>
-      </div>
-
-      <!-- CONTATO -->
-      <div class="card section tab" id="contato">
-        <h3>Contato</h3>
-        <p>Clique e me fale o tipo de site:</p>
-
-        <div class="contactGrid">
-          <div class="contactBox">
-            <b>📞 WhatsApp</b>
-            <div class="muted">Mensagem automática:</div>
-            <p style="margin-top:10px">
-              <button class="btn btnPrimary" type="button" onclick="contratar('Orçamento')">Pedir orçamento</button>
-            </p>
-          </div>
-
-          <div class="contactBox">
-            <b>✉️ E-mail</b>
-            <p class="muted" style="margin-top:6px;">joseluizariel@gmail.com</p>
-            <p class="small" style="margin-top:10px;">Atendo Praia Grande e online.</p>
-          </div>
-        </div>
-      </div>
-
-    </section>
-  </main>
-
-  <a class="waFloat" href="javascript:void(0)" onclick="contratar('Orçamento')">💬 WhatsApp</a>
-
-  <footer>
-    <div class="wrap">
-      <div class="row">
-        <div>© <span id="ano"></span> JL Sites • Criação de Sites</div>
-        <div class="small">HTML/CSS/JS • Publicado no GitHub Pages</div>
-      </div>
-    </div>
-  </footer>
-
-  <script>
-    const tabs = document.querySelectorAll("nav a");
-    const pages = document.querySelectorAll(".tab");
-    document.getElementById("ano").textContent = new Date().getFullYear();
-
-    function openTab(id){
-      tabs.forEach(a => a.classList.toggle("active", a.dataset.tab === id));
-      pages.forEach(p => p.classList.toggle("active", p.id === id));
-      window.scrollTo({top: 0, behavior: "smooth"});
-    }
-
-    tabs.forEach(a => {
-      a.addEventListener("click", (e) => {
-        e.preventDefault();
-        openTab(a.dataset.tab);
-      });
-    });
-
-    document.getElementById("ctaPlanos").addEventListener("click", () => openTab("planos"));
-
-    const wppNumber = "5513996469617";
-    function wppUrl(msg){
-      return "https://wa.me/" + wppNumber + "?text=" + encodeURIComponent(msg);
-    }
-
-    function contratar(plano){
-      const msg =
-        "Olá! Quero um site. Plano: " + plano +
-        ".\n\nMeu negócio é: \nTipo de site (empresa/landing/catálogo): \nPrazo: \n";
-      window.open(wppUrl(msg), "_blank");
-    }
-
-    document.getElementById("ctaWpp").addEventListener("click", () => {
-      window.open(wppUrl("Olá! Quero um site. Pode me passar um orçamento? Meu negócio é:"), "_blank");
-    });
-
-    window.contratar = contratar;
-  </script>
 </body>
 </html>
