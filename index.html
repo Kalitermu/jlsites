@@ -6,23 +6,21 @@
 <title>JL SITES • Agência Premium</title>
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;}
+*{margin:0;padding:0;box-sizing:border-box}
 
 body{
 font-family:Arial;
-background:#02121f;
+background:#041321;
 color:white;
 }
 
 header{
-background:#031b2f;
+background:linear-gradient(90deg,#003366,#0077ff);
 padding:20px;
 text-align:center;
 }
 
-header h1{
-font-size:30px;
-}
+header h1{font-size:30px;}
 
 nav{
 margin-top:10px;
@@ -32,24 +30,24 @@ color:white;
 text-decoration:none;
 margin:5px;
 padding:8px 12px;
-background:#0b2c45;
+background:rgba(255,255,255,.15);
 border-radius:8px;
 }
 
 .hero{
 text-align:center;
-padding:40px 20px;
+padding:30px 20px;
 }
 
 .btn{
 display:inline-block;
-margin-top:15px;
 background:#25D366;
 color:black;
-padding:12px 22px;
+padding:12px 20px;
 border-radius:10px;
 font-weight:bold;
 text-decoration:none;
+margin-top:15px;
 }
 
 .cards{
@@ -65,7 +63,6 @@ background:#0b2c45;
 width:320px;
 border-radius:12px;
 overflow:hidden;
-box-shadow:0 0 20px rgba(0,0,0,0.4);
 }
 
 .card img{
@@ -79,37 +76,38 @@ padding:15px;
 }
 
 .card h3{
-font-size:26px;
-margin-bottom:10px;
+font-size:24px;
+margin-bottom:8px;
 }
 
 .preco{
-font-size:28px;
 color:#00ffae;
+font-size:28px;
 font-weight:bold;
 margin-bottom:10px;
 }
 
-ul{
+.card ul{
 padding-left:18px;
-margin-bottom:15px;
+margin-bottom:12px;
+line-height:1.5;
 }
 
 .card a{
 display:inline-block;
 background:#25D366;
-padding:10px 15px;
+color:black;
+padding:10px 14px;
 border-radius:8px;
 text-decoration:none;
-color:black;
 font-weight:bold;
 }
 
 footer{
 text-align:center;
 padding:20px;
-background:#01101c;
-margin-top:30px;
+background:#02111f;
+margin-top:20px;
 }
 </style>
 </head>
@@ -118,92 +116,74 @@ margin-top:30px;
 
 <header>
 <h1>JL SITES • Agência Premium</h1>
+
 <nav>
-<a href="#">Início</a>
-<a href="#">Planos</a>
-<a href="#">Contato</a>
+<a href="#servicos">Serviços</a>
+<a href="#planos">Planos</a>
+<a href="#contato">Contato</a>
 </nav>
 </header>
 
 <section class="hero">
-<h2>Transforme sua ideia em realidade</h2>
-<p>Sites modernos para empresas, lojas e negócios.</p>
-<a class="btn" href="https://wa.me/5513996469617">💬 Pedir Orçamento</a>
+<h2>Criação profissional de sites</h2>
+<p>Site rápido, responsivo e pronto pra vender.</p>
+
+<a class="btn"
+href="https://wa.me/5513996469617?text=Oi! Quero um orçamento de site.">
+💬 Pedir orçamento
+</a>
 </section>
 
-<section class="cards">
+<section class="cards" id="planos">
 
-<!-- SITE EMPRESA -->
 <div class="card">
 <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f">
 <div class="card-content">
-<h3>Site Empresa</h3>
+<h3>Site Institucional</h3>
 <div class="preco">R$ 299</div>
 <ul>
-<li>Site profissional 1 página</li>
-<li>Design moderno</li>
+<li>1 página profissional</li>
+<li>Responsivo celular</li>
 <li>Botão WhatsApp</li>
-<li>Responsivo (celular)</li>
-<li>Hospedagem grátis (GitHub Pages)</li>
+<li>Hospedagem grátis (GitHub)</li>
 </ul>
-<a href="https://wa.me/5513996469617">Quero este</a>
+<a href="https://wa.me/5513996469617">Quero esse</a>
 </div>
 </div>
 
-<!-- LOJA ONLINE -->
 <div class="card">
 <img src="https://images.unsplash.com/photo-1556740749-887f6717d7e4">
-<div class="card-content">
-<h3>Loja Online</h3>
-<div class="preco">R$ 799</div>
-<ul>
-<li>Catálogo de produtos</li>
-<li>Carrinho simples</li>
-<li>Pedido via WhatsApp</li>
-<li>Fotos dos produtos</li>
-<li>Base pronta pra crescer</li>
-</ul>
-<a href="https://wa.me/5513996469617">Quero este</a>
-</div>
-</div>
-
-<!-- LANDING PAGE -->
-<div class="card">
-<img src="https://images.unsplash.com/photo-1559028012-481c04fa702d">
 <div class="card-content">
 <h3>Landing Page</h3>
 <div class="preco">R$ 499</div>
 <ul>
-<li>Página de vendas profissional</li>
-<li>Foco em conversão</li>
-<li>Ideal para anúncios</li>
-<li>Botão direto WhatsApp</li>
+<li>Página focada em vendas</li>
 <li>SEO básico</li>
+<li>Call-to-action forte</li>
+<li>Ideal para anúncios</li>
 </ul>
-<a href="https://wa.me/5513996469617">Quero este</a>
+<a href="https://wa.me/5513996469617">Quero esse</a>
 </div>
 </div>
 
-<!-- CATALOGO -->
 <div class="card">
-<img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c">
+<img src="https://images.unsplash.com/photo-1559028012-481c04fa702d">
 <div class="card-content">
-<h3>Catálogo</h3>
-<div class="preco">R$ 599</div>
+<h3>Catálogo / Loja</h3>
+<div class="preco">R$ 799</div>
 <ul>
 <li>Produtos organizados</li>
+<li>Pedido via WhatsApp</li>
 <li>Visual profissional</li>
-<li>Sem pagamento online</li>
-<li>Ideal para WhatsApp</li>
-<li>Atualização fácil</li>
+<li>Suporte inicial</li>
 </ul>
-<a href="https://wa.me/5513996469617">Quero este</a>
+<a href="https://wa.me/5513996469617">Quero esse</a>
 </div>
 </div>
 
 </section>
 
-<footer>
+<footer id="contato">
 📞 (13) 99646-9617<br>
 ✉️ joseluizariel@gmail.com<br>
 © 2026 JL Sites • Agência Premium
